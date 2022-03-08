@@ -1,0 +1,49 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+  }
+
+/* Navbar */
+#navbar {
+    
+    color: blue;
+    overflow: auto;
+  }
+  
+  #navbar a {
+    color: blue;
+  }
+  
+  #navbar h1 {
+    float: left;
+    padding-top: 20px;
+  }
+  
+  #navbar ul {
+    list-style: none;
+    float: right;
+  }
+  
+  #navbar ul li {
+    float: left;
+  }
+  
+  #navbar ul li a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+  }
+  
+ /* img */
+ img{
+     padding-top: 20px;
+ }
+
+ .left{
+     float: left;
+     margin-left: 300px;
+     margin-top: -200px;
+ }
