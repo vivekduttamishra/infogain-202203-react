@@ -1,0 +1,101 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        fieldset {
+            width: 60%;
+            margin: 20px;
+        }
+    </style>
+
+   
+
+</head>
+
+<body>
+    <fieldset>
+        <legend>Toolbar</legend>
+        <div>
+            Number
+            <input type='text' id='number' />
+            <input type='button' id="addtolist" onclick="addNumber()" value='Add To List'    />
+            
+            <input type='button' value='Clear Display' 
+                    />
+            
+            <input type='button' value='Reset Calculator' 
+                    />
+
+            <br/>
+            <input type='button' value='Sum'  onclick="sumOfNumbers() lis"  />
+            <input type='button' value='Average'   />
+            <input type='button' value='Find Min'   />
+
+        </div>
+
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+        <legend>Console</legend>
+
+        <div id='console'>
+            <!-- <p>sum is 60</p>
+            <p>average is 20</p> -->
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Number List</legend>
+
+        <ul id='numberList'>
+            <!-- <li>29</li>
+            <li>11</li>
+            <li>10</li> -->
+        </ul>
+
+        <input type='button' value='refresh list' />
+    </fieldset>
+
+  <script>
+      function addNumber(){
+          var num = document.getElementById('number').value;
+          var li = document.createElement("li");
+          li.innerHTML = num;
+          if (Number.isInteger(+num)) {
+            document.getElementById("numberList").appendChild(li);
+          } else {
+            document.getElementById("console").innerHTML = "Number is not integer"
+          }
+      }
+
+      function sumOfNumbers(arr) {
+          var numlist = [];
+        sum = 0;
+        var num = document.getElementById('numberList').value;
+
+        for (var i = arr[num]; i <= aar[num]; i++) {
+            numlist.push(i);
+        }
+        
+        while(num) {
+            sum += numlist;
+        }
+        document.getElementById("console").innerHTML(sum);
+      }
+  </script>
+    
+    
+</body>
+
+</html>
