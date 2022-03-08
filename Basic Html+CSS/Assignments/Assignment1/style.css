@@ -1,0 +1,26 @@
+.header{
+    /* display: flex; */
+    gap: 100px;
+    text-align: right; 
+    padding: 10px 3%;
+    margin: 10px 30px;
+    }
+.product-image { 
+    float: left; 
+    width: 20%;
+ }
+
+.product-details {
+    margin-right: 50px;
+    text-indent: 10px
+    
+    }
+/* .product-description {
+      margin: 5px 20px 5px 0;
+      line-height: 1.4em;
+    }
+  } */
+  .footer{
+    margin-right: 50px;
+    text-indent: 250px;
+  }
