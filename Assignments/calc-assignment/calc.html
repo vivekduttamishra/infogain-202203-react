@@ -24,27 +24,64 @@
     let inputvalue = 
     function handNumberChange(event){
         if(typeof event.target.value == 'number'){
-            console.log(Number)
-        }
-        else{
-            console.log("Invalid Value")
+            
         }
     }
-    function addNumbers{
-        if()
+    function addtolist(){
+        var ul = document.getElementById("numberList");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(document.getElementById('number').value));
+        ul.appendChild(li);
     }
     function Display(val){
         document.getElementById(result).value+=val
         return val
     }
-    function slove(){
-        let x= document.getElementById('result').value
-        let y=eval(x);
-        document.getElementById('result').value=y
-        return y
+    function slove() {
+       
+        var elementsLI = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var lis = [];
+        var ts = 0;
+        for (var i = 0; i <= length - 1; i++) {
+            lis.push(parseInt( elementsLI[i].innerText));
+           // alert(elementsLI[i].value);
+            ts += parseInt(elementsLI[i].innerText);
+        }
+        document.getElementById('console').innerHTML = "Sum value is :"+ts;
+    }
+    function Avarage() {
+
+        var elementsLI = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var lis = [];
+        var ts = 0;
+        for (var i = 0; i <= length - 1; i++) {
+            lis.push(parseInt(elementsLI[i].innerText));
+            // alert(elementsLI[i].value);
+            ts += parseInt(elementsLI[i].innerText);
+        }
+
+        document.getElementById('console').innerHTML = "Avarage value is :" + (ts / length);
+    }
+    function Minvalue() {
+
+        var elementsLI = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var lis = [];
+        var ts = 0;
+        for (var i = 0; i <= length - 1; i++) {
+           
+            lis.push(parseInt(elementsLI[i].innerText));
+        }
+
+        document.getElementById('console').innerHTML = "Min. value is :" + Math.min(...lis);
     }
     function clearScreen(){
-        document.getElementById('result').value=""
+        document.getElementById('console').innerHTML=""
+    }
+    function resfreshthelist() {
+        document.getElementById('numberList').innerHTML = ""
     }
 </script>
 
@@ -54,18 +91,18 @@
         <div>
             Number
             <input type='text' id='number' />
-            <input type='button' value='Add To List'    />
+            <input type='button' value='Add To List' onclick="addtolist()"    />
             
-            <input type='button' value='Clear Display' 
+            <input type='button' value='Clear Display' onclick="clearScreen()" 
                     />
             
             <input type='button' value='Reset Calculator' 
                     />
 
             <br/>
-            <input type='button' value='Sum'    />
-            <input type='button' value='Average'   />
-            <input type='button' value='Find Min'   />
+            <input type='button' value='Sum' onclick="slove()"   />
+            <input type='button' value='Average' onclick="Avarage()"  />
+            <input type='button' value='Find Min' onclick="Minvalue()"   />
 
         </div>
 
@@ -92,7 +129,7 @@
             <li>10</li> -->
         </ul>
 
-        <input type='button' value='refresh list' />
+        <input type='button' value='refresh list'onclick="resfreshthelist()" />
     </fieldset>
 
   
