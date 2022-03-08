@@ -17,10 +17,10 @@
 
    <script type="text/javascript">
        let listOfNumbers = [];
-       let inputValue = 
+       let inputValue
        function handleNumberChange(event) {
         if(typeof event.target.value == 'number'){
-            
+            inputValue = event.target.value
         }
        }
 
@@ -33,8 +33,8 @@
         <legend>Toolbar</legend>
         <div>
             Number
-            <input type='text' onchange="" id='number' />
-            <input type='button' value='Add To List'    />
+            <input type='text' onchange="handleNumberChange()" id='number' />
+            <input type='button' onclick="" value='Add To List'    />
             
             <input type='button' value='Clear Display' 
                     />
