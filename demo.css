@@ -1,0 +1,70 @@
+.main-container{
+    border:2px solid blue;
+    height:100vh;
+}
+
+nav{
+    border-bottom:2px solid blue;
+    padding:20px;
+
+}
+
+nav h3{
+    color:#323f4b;
+    font-weight:bold;
+    
+    
+
+}
+
+nav div{
+    float: right;
+
+}
+
+nav div a{
+    color:#323f4b;
+    margin-left: 10px;
+
+
+}
+
+.sub-container{
+    border:2 px solid blue;
+}
+section{
+    height:70%;
+}
+
+section div{
+    padding:20px;
+    display: inline;
+    float:left;
+}
+
+img{
+    height:300px;
+    width:250px;
+}
+
+section div h4{
+    color:#323f4b;
+    font-weight: bold;
+}
+
+section div p{
+    color:#323f4b;
+    font-weight: bold;
+}
+
+section div ul{
+    padding:10px;
+}
+
+footer{
+    border:2px solid blue;
+    padding:10px;
+    text-align: center;
+    color:#323f4b;
+    border-top:none;
+}
