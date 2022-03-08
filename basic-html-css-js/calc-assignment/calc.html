@@ -35,7 +35,7 @@
                     />
 
             <br/>
-            <input type='button' value='Sum'  onclick="sumOfNumbers() lis"  />
+            <input type='button' value='Sum'  onclick="sumOfNumbers()"  />
             <input type='button' value='Average'   />
             <input type='button' value='Find Min'   />
 
@@ -79,19 +79,16 @@
           }
       }
 
-      function sumOfNumbers(arr) {
-          var numlist = [];
-        sum = 0;
-        var num = document.getElementById('numberList').value;
+      function sumOfNumbers() {
+        //   var numlist = [];
+          var num = document.getElementById('numberList').value;
+            sum = 0;
+            while(num) {
+                sum += num;
+            }
 
-        for (var i = arr[num]; i <= aar[num]; i++) {
-            numlist.push(i);
-        }
-        
-        while(num) {
-            sum += numlist;
-        }
-        document.getElementById("console").innerHTML(sum);
+        console.log(sum);
+        // document.getElementById("console").innerHTML.sum;
       }
   </script>
     
