@@ -29,6 +29,7 @@
         if(isNaN(numCheck)){
            // alert("invalid input");
             document.getElementById('console').innerHTML = "invalid input :"+numCheck;
+            return;
         }
         li.appendChild(document.createTextNode(document.getElementById('number').value));
         ul.appendChild(li);
