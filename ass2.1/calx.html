@@ -26,7 +26,7 @@
         var ul = document.getElementById("numberList");
         var li = document.createElement("li");
         var numCheck=document.getElementById('number').value;
-        if(isNaN(numCheck)){
+        if(isNaN(numCheck) || numCheck==""){
            // alert("invalid input");
             document.getElementById('console').innerHTML = "invalid input :"+numCheck;
             return;
