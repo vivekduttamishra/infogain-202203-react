@@ -10,9 +10,8 @@ function addToList() {
         arr.push(inputValue.value)
         li.appendChild(document.createTextNode(inputValue.value));
         ul.appendChild(li);
-    } else {
-        document.getElementById("error").innerText = "Please enter valid number"
-    }
+    } 
+    
 
     console.log("array is ", arr)
     document.getElementById("myInput").value = ""
