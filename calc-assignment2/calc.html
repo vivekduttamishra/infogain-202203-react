@@ -93,12 +93,12 @@
   }
   
     function resfreshList() {
-    document.getElementById("numberList").innerHTML = "";
-	numbersList = [];
+    document.getElementById("numberList").innerHTML = numbersList;
   }
   function clearScreen() {
     document.getElementById("console").innerHTML = "";
     document.getElementById("number").value = "";
+    document.getElementById("numberList").innerHTML = "";
   }
 
   function minimumList() {
