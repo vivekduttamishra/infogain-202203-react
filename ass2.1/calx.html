@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        fieldset {
+            width: 60%;
+            margin: 20px;
+        }
+    </style>
+
+   
+
+</head>
+<script>
+    // logic for addlist button
+    let listofNumbers=[]
+    let inputvalue = " "
+    function addtolist(){
+        var ul = document.getElementById("numberList");
+        var li = document.createElement("li");
+        var numCheck=document.getElementById('number').value;
+        if(isNaN(numCheck)){
+           // alert("invalid input");
+            document.getElementById('console').innerHTML = "invalid input :"+numCheck;
+        }
+        li.appendChild(document.createTextNode(document.getElementById('number').value));
+        ul.appendChild(li);
+    }
+    
+    function sum() {
+       
+        var elementsLI = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var lis = [];
+        var ts = 0;
+        for (var i = 0; i <= length - 1; i++) {
+            lis.push(parseInt( elementsLI[i].innerText));
+           // alert(elementsLI[i].value);
+            ts += parseInt(elementsLI[i].innerText);
+        }
+        document.getElementById('console').innerHTML = "Sum value is :"+ts;
+    }
+    function Avarage() {
+
+        var elementsLI = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var lis = [];
+        var ts = 0;
+        for (var i = 0; i <= length - 1; i++) {
+            lis.push(parseInt(elementsLI[i].innerText));
+            // alert(elementsLI[i].value);
+            ts += parseInt(elementsLI[i].innerText);
+        }
+
+        document.getElementById('console').innerHTML = "Avarage value is :" + (ts / length);
+    }
+    function Minvalue() {
+
+        var elementsLI = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var lis = [];
+        var ts = 0;
+        for (var i = 0; i <= length - 1; i++) {
+           
+            lis.push(parseInt(elementsLI[i].innerText));
+        }
+
+        document.getElementById('console').innerHTML = "Min. value is :" + Math.min(...lis);
+    }
+    function clearScreen(){
+        document.getElementById('console').innerHTML=""
+    }
+    function resfreshthelist() {
+        document.getElementById('numberList').innerHTML = ""
+    }
+    function Resetcalculator() {
+        document.getElementById('numberList').innerHTML = ""
+        document.getElementById('console').innerHTML = ""
+        document.getElementById('number').value=''
+    }
+</script>
+
+<body>
+    <fieldset>
+        <legend>Toolbar</legend>
+        <div>
+            Number
+            <input type='text' id='number' />
+            <input type='button' value='Add To List' onclick="addtolist()"    />
+            
+            <input type='button' value='Clear Display' onclick="clearScreen()" />
+                    
+            
+            <input type='button' value='Reset Calculator' onclick="Resetcalculator()"/>
+                    
+
+            <br/>
+            <input type='button' value='Sum' onclick="sum()"   />
+            <input type='button' value='Average' onclick="Avarage()"  />
+            <input type='button' value='Find Min' onclick="Minvalue()"   />
+
+        </div>
+
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+        <legend>Console</legend>
+
+        <div id='console'>
+            <!-- <p>sum is 60</p>
+            <p>average is 20</p> -->
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Number List</legend>
+
+        <ul id='numberList'>
+            <!-- <li>29</li>
+            <li>11</li>
+            <li>10</li> -->
+        </ul>
+
+        <input type='button' value='refresh list'onclick="resfreshthelist()" />
+    </fieldset>
+
+  
+    
+    
+</body>
+
+</html>
