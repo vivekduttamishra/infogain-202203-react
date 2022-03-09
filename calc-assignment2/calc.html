@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
+
+  <style>
+    fieldset {
+      width: 60%;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend>Toolbar</legend>
+    <div>
+      Number
+      <input type="text" id="number" onchange="numberChange()" />
+      <input type="button" onclick="addNumbersToList()" value="Add To List" />
+
+      <input type="button" onclick="clearScreen()" value="Clear Display" />
+
+      <input type="button" onclick="resetCalc()" value="Reset Calculator" />
+
+      <br />
+      <input type="button" onclick="numbersSum()" value="Sum" />
+      <input type="button" onclick="averageOfNumbers()" value="Average" />
+      <input type="button" onclick="minimumList()" value="Find Min" />
+    </div>
+  </fieldset>
+
+  <hr />
+
+  <fieldset>
+    <legend>Console</legend>
+
+    <div id="console"></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Number List</legend>
+
+    <ul id="numberList"></ul>
+
+    <input type="button" value="refresh list" onclick="resfreshList()" />
+  </fieldset>
+</body>
+
+<script>
+  let numbersList = [];
+  let inputvalue;
+
+  function numberChange() {
+    let testData = document.getElementById("number").value;
+    inputvalue = testData;
+  }
+
+  function numbersSum() {
+    document.getElementById("console").innerHTML = "";
+    let sum = 0;
+    for (let i = 0; i < numbersList.length; i++) {
+      sum += parseInt(numbersList[i]);
+    }
+    document.getElementById("console").innerHTML = `Sum is ${sum}`;
+  }
+
+  function averageOfNumbers() {
+    document.getElementById("console").innerHTML = "";
+    const average = (arr) =>
+      arr.reduce((acc, v, i, a) => acc + v / a.length, 0);
+
+    document.getElementById("console").innerHTML = `Average is ${average(
+      numbersList
+    )}`;
+  }
+  
+  function addNumbersToList() {
+    if (inputvalue && /^-?\d+$/.test(inputvalue)) {
+      numbersList.push(inputvalue);
+      console.log(numbersList);
+      var ul = document.getElementById("numberList");
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(inputvalue));
+      ul.appendChild(li);
+    } else {
+      document.getElementById("console").innerHTML += "In-valid";
+    }
+  }
+  
+    function resfreshList() {
+    document.getElementById("numberList").innerHTML = "";
+	numbersList = [];
+  }
+  function clearScreen() {
+    document.getElementById("console").innerHTML = "";
+    document.getElementById("number").value = "";
+  }
+
+  function minimumList() {
+    document.getElementById("console").innerHTML = "";
+    var minimumValue = Math.min(...numbersList);
+
+    document.getElementById("console").innerHTML = `Minvalue is ${minimumValue}`;
+  }
+
+  function resetCalc() {
+    document.getElementById("console").innerHTML = "";
+    document.getElementById("number").value = "";
+    document.getElementById("numberList").innerHTML = "";
+	numbersList = [];
+  }
+
+</script>
+
+
+</html>
