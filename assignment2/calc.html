@@ -2,126 +2,114 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
 
-    <style>
-        fieldset {
-            width: 60%;
-            margin: 20px;
-        }
-    </style>
+  <style>
+    fieldset {
+      width: 60%;
+      margin: 20px;
+    }
+  </style>
 </head>
 <script>
-    let listofNumbers = [];
-    let inputvalue = function changeNumber(event) {
-        if (typeof event.target.value == "number") {
-        }
-    };
-    function addtolist() {
-        var ul = document.getElementById("numberList");
-        var li = document.createElement("li");
-        if (!isNaN(document.getElementById("number").value)) {
-            li.appendChild(
-                document.createTextNode(document.getElementById("number").value)
-            );
-            ul.appendChild(li);
-        } else
-            document.getElementById("console").innerHTML =
-                "Invalid Value =" + document.getElementById("number").value;
-    }
-    function Display(val) {
-        document.getElementById(result).value += val;
-        return val;
-    }
-    function Sum() {
-        var numList = document.getElementsByTagName("li");
-        var length = document.getElementsByTagName("li").length;
-        var num = [];
-        var st = 0;
-        for (var i = 0; i <= length - 1; i++) {
-            num.push(parseInt(numList[i].innerText));
+  let listofNumbers = [];
+  let inputvalue;
 
-            st += parseInt(numList[i].innerText);
-        }
-        document.getElementById("console").innerHTML = "Sum is :" + st;
+  function handNumberChange() {
+    let testValue = document.getElementById("number").value;
+    inputvalue = testValue;
+  }
+  function addNumbersToList() {
+    if (inputvalue && /^-?\d+$/.test(inputvalue)) {
+      listofNumbers.push(inputvalue);
+      console.log(listofNumbers);
+      var ul = document.getElementById("numberList");
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(inputvalue));
+      ul.appendChild(li);
+    } else {
+      document.getElementById("console").innerHTML += "In-valid";
     }
-    function Average() {
-        var numList = document.getElementsByTagName("li");
-        var length = document.getElementsByTagName("li").length;
-        var num = [];
-        var st = 0;
-        for (var i = 0; i <= length - 1; i++) {
-            num.push(parseInt(numList[i].innerText));
+  }
 
-            st += parseInt(numList[i].innerText);
-        }
+  function sumOfValues() {
+    document.getElementById("console").innerHTML = "";
+    let sum = 0;
+    for (let i = 0; i < listofNumbers.length; i++) {
+      sum += parseInt(listofNumbers[i]);
+    }
+    document.getElementById("console").innerHTML = `Sum is ${sum}`;
+  }
 
-        document.getElementById("console").innerHTML =
-            "Average is :" + st / length;
-    }
-    function Minvalue() {
-        var numList = document.getElementsByTagName("li");
-        var length = document.getElementsByTagName("li").length;
-        var num = [];
-        var st = 0;
-        for (var i = 0; i <= length - 1; i++) {
-            num.push(parseInt(numList[i].innerText));
-        }
+  function averageOfList() {
+    document.getElementById("console").innerHTML = "";
+    const average = (arr) =>
+      arr.reduce((acc, v, i, a) => acc + v / a.length, 0);
 
-        document.getElementById("console").innerHTML =
-            "Min is :" + Math.min(...num);
-    }
-    function clearScreen() {
-        document.getElementById("console").innerHTML = "";
-    }
-    function resfreshList() {
-        document.getElementById("numberList").innerHTML = "";
-    }
-    function Resetcalculator() {
-        document.getElementById("numberList").innerHTML = "";
-        document.getElementById("console").innerHTML = "";
-        document.getElementById("number").value = "";
-    }
+    document.getElementById("console").innerHTML = `Average is ${average(
+      listofNumbers
+    )}`;
+  }
+
+  function minOfList() {
+    document.getElementById("console").innerHTML = "";
+    var minValue = Math.min(...listofNumbers);
+
+    document.getElementById("console").innerHTML = `Minvalue is ${minValue}`;
+  }
+
+  function resetCalculator() {
+    document.getElementById("console").innerHTML = "";
+    document.getElementById("number").value = "";
+    document.getElementById("numberList").innerHTML = "";
+  }
+  function resfreshList() {
+    document.getElementById("numberList").innerHTML = "";
+  }
+  function clearScreen() {
+    document.getElementById("console").innerHTML = "";
+    document.getElementById("number").value = "";
+  }
 </script>
 
 <body>
-    <fieldset>
-        <legend>Toolbar</legend>
-        <div>
-            Number
-            <input type="text" id="number" />
-            <input type="button" value="Add To List" onclick="addtolist()" />
+  <fieldset>
+    <legend>Toolbar</legend>
+    <div>
+      Number
+      <input type="text" id="number" onchange="handNumberChange()" />
+      <input type="button" onclick="addNumbersToList()" value="Add To List" />
 
-            <input type="button" value="Clear Display" onclick="clearScreen()" />
+      <input type="button" onclick="clearScreen()" value="Clear Display" />
 
-            <input type="button" value="Reset Calculator" onclick="Resetcalculator()" />
+      <input type="button" onclick="resetCalculator()" value="Reset Calculator" />
 
-            <br />
-            <input type="button" value="Sum" onclick="Sum()" />
-            <input type="button" value="Average" onclick="Average()" />
-            <input type="button" value="Find Min" onclick="Minvalue()" />
-        </div>
-    </fieldset>
+      <br />
+      <input type="button" onclick="sumOfValues()" value="Sum" />
+      <input type="button" onclick="averageOfList()" value="Average" />
+      <input type="button" onclick="minOfList()" value="Find Min" />
+    </div>
+  </fieldset>
 
-    <hr />
+  <hr />
 
-    <fieldset>
-        <legend>Console</legend>
+  <fieldset>
+    <legend>Console</legend>
 
-        <div id="console"></div>
-    </fieldset>
+    <div id="console"></div>
+  </fieldset>
 
-    <fieldset>
-        <legend>Number List</legend>
+  <fieldset>
+    <legend>Number List</legend>
 
-        <ul id="numberList"></ul>
+    <ul id="numberList"></ul>
 
-        <input type="button" value="refresh list" onclick="resfreshList()" />
-    </fieldset>
+    <input type="button" value="refresh list" onclick="resfreshList()" />
+  </fieldset>
 </body>
 
 </html>
