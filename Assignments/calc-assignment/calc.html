@@ -21,22 +21,14 @@
 </head>
 <script>
     let listofNumbers=[]
-    let inputvalue = 
-    function handNumberChange(event){
-        if(typeof event.target.value == 'number'){
-            
-        }
-    }
+    let inputvalue = " "
     function addtolist(){
         var ul = document.getElementById("numberList");
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(document.getElementById('number').value));
         ul.appendChild(li);
     }
-    function Display(val){
-        document.getElementById(result).value+=val
-        return val
-    }
+    
     function sum() {
        
         var elementsLI = document.getElementsByTagName('li')
