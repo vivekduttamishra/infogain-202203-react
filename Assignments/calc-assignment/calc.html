@@ -25,9 +25,15 @@
     function addtolist(){
         var ul = document.getElementById("numberList");
         var li = document.createElement("li");
-        li.appendChild(document.createTextNode(document.getElementById('number').value));
-        ul.appendChild(li);
+        if (!isNaN(document.getElementById('number').value)) {
+            li.appendChild(document.createTextNode(document.getElementById('number').value));
+            ul.appendChild(li);
+        }
+        else
+            document.getElementById('console').innerHTML = "Invalid Value :" ;
+       
     }
+    
     
     function sum() {
        

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Demo</title>
+
+    <script>
+
+        document.write("Hello World from Javascript");
+        window.document.write('Hello World Again!');
+        console.log('Hello World on Console');
+
+        function greet(){
+            var greeting= document.getElementById("greeting");
+            greeting.innerHTML="<strong>Hello World</strong> ";
+        }
+        
+        
+
+    </script>
+
+</head>
+
+<body onload="greet();">
+    <h1>Javascript Demo</h1>
+
+    <p id="greeting"></p>
+
+    <p>Welcome to Javascript!</p>   
+    
+</body>
+</html>
