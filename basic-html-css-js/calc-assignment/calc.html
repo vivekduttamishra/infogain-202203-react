@@ -34,7 +34,7 @@
             <br />
             <input type='button' value='Sum' id="sumofnumber" />
             <input type='button' value='Average' id="average" />
-            <input type='button' value='Find Min' id="minValue" onclick="findMinValue()"/>
+            <input type='button' value='Find Min' id="minValue" onclick="findMinValue()" />
 
         </div>
 
@@ -47,6 +47,7 @@
 
         <div id='console'>
             <p id="minval"></p>
+            <p id="error"></p>
             <!-- <p>sum is 60</p>
             <p>average is 20</p> -->
         </div>
@@ -57,7 +58,7 @@
         <legend>Number List</legend>
 
         <ul id='numberList'>
-            
+
             <!-- <li>29</li>
             <li>11</li>
             <li>10</li> -->
@@ -75,7 +76,6 @@
             arr.push(number.value);
             if (Number.isInteger(+num)) {
                 document.getElementById("numberList").appendChild(li);
-
             } else {
                 document.getElementById("console").innerHTML = "Number is not integer"
             }
@@ -108,7 +108,7 @@
 
             var total = sum / listNumber.length;
             console.log('Average of Numbers', total)
-            
+
             document.getElementById("console").innerText = "Average:" + total
             // document.getElementById("console").innerHTML = total;
         }
@@ -150,6 +150,20 @@
                 refreshList.style.display = "none";
             }
         }
+
+        var U = [2, 12, "hello", new Date(), 17, 21, "world"];
+
+
+        var other = [], numbers = [];
+        for (var i = 0; i < U.length; ++i) {
+            if (U[i] >= 0)
+                numbers.push(U[i]);
+            else
+                other.push(U[i]);
+        }
+        console.log('others', other);
+        console.log('numbers', numbers);
+
     </script>
 
 </body>
