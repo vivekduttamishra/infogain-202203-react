@@ -93,7 +93,11 @@
   }
   
     function resfreshList() {
-    document.getElementById("numberList").innerHTML = numbersList;
+      //document.getElementById("numberList").innerHTML = numbersList;
+      var ul = document.getElementById("numberList");
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(inputvalue));
+      ul.appendChild(li);
   }
   function clearScreen() {
     document.getElementById("console").innerHTML = "";
