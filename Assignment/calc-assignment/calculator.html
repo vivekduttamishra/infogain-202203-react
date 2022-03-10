@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        fieldset {
+            width: 60%;
+            margin: 20px;
+        }
+        .error {
+    color: red;
+    font-size: 24px;
+  }
+        
+    </style>
+
+
+
+</head>
+<script>
+    let listofNumbers=[]
+    let inputvalue = " "
+    function addToNumberList(){
+        var ul = document.getElementById("numberList");
+        var li = document.createElement("li");
+        var numCheck=document.getElementById('number').value;
+        if(isNaN(numCheck) || numCheck==""){
+           
+            
+            document.getElementById('console').innerHTML = "<span class='error'>Please Enter numbers Only</span>";
+            return;
+        }
+        li.appendChild(document.createTextNode(document.getElementById('number').value));
+        ul.appendChild(li);
+    }
+    // for Addition
+    function Addition() {
+       
+        var numberList = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var myList = [];
+        var list1 = 0;
+        for (var i = 0; i <= length - 1; i++) {
+            myList.push(parseInt( numberList[i].innerText));
+           // alert(elementsLI[i].value);
+           list1  += parseInt(numberList[i].innerText);
+        }
+        document.getElementById('console').innerHTML = "Sum value is :"+list1 ;
+    }
+    // For Average
+    function Avarage() {
+
+        var numberList = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var myList = [];
+        var list1 = 0;
+        for (var i = 0; i <= length - 1; i++) {
+            myList.push(parseInt( numberList[i].innerText));
+           // alert(elementsLI[i].value);
+           list1  += parseInt(numberList[i].innerText);
+        }
+
+        document.getElementById('console').innerHTML = "Avarage value is :" + (list1 / length);
+    }
+
+    // For Minimum
+    function MinmumValue() {
+
+        var numberList = document.getElementsByTagName('li')
+        var length = document.getElementsByTagName('li').length;
+        var myList = [];
+        var list1 = 0;
+        for (var i = 0; i <= length - 1; i++) {
+            myList.push(parseInt( numberList[i].innerText));
+        }
+
+        document.getElementById('console').innerHTML = "Min. value is :" + Math.min(...myList);
+    }
+    // for clear Display
+    function clearDiplay(){
+        document.getElementById('console').innerHTML=""
+    }
+    // forRefresh List
+    function resfreshthelist() {
+        document.getElementById('numberList').innerHTML = ""
+    }
+    // for reset calculator
+    function Resetcalculator() {
+        document.getElementById('numberList').innerHTML = ""
+        document.getElementById('console').innerHTML = ""
+        document.getElementById('number').value=''
+    }
+</script>
+
+<body>
+    <fieldset>
+        <legend>Toolbar</legend>
+        <div>
+            Number
+            <input type="text" id="number"  />
+            <input type='button' value='Add To List' onclick="addToNumberList()"    />
+            
+            <input type='button' value='Clear Display' onclick="clearDiplay()" />
+                    
+            
+            <input type='button' value='Reset Calculator' onclick="Resetcalculator()"/>
+                    
+
+            <br/>
+            <input type='button' value='Sum' onclick="Addition()"   />
+            <input type='button' value='Average' onclick="Avarage()"  />
+            <input type='button' value='Find Min' onclick="MinmumValue()"   />
+
+        </div>
+
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+        <legend>Console</legend>
+
+        <div id='console'>
+            <!-- <p>sum is 60</p>
+            <p>average is 20</p> -->
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Number List</legend>
+
+        <ul id='numberList'>
+            <!-- <li>29</li>
+            <li>11</li>
+            <li>10</li> -->
+        </ul>
+
+        <input type='button' value='refresh list'onclick="resfreshthelist()" />
+    </fieldset>
+
+  
+    
+    
+</body>
+
+</html>
+
+
