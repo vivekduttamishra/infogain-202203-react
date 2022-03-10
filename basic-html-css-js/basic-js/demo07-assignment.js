@@ -2,7 +2,7 @@
 var U = [2, 12, "hello", new Date(), 17, 21, "world"];
 var numbers= [];
 var others=[];
-U.map((n)=>{
+U.filter((n)=>{
     if(typeof (n) == "number")
     numbers.push(n)
     else
