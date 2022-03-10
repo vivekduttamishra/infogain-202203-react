@@ -28,3 +28,17 @@ var p3={    //create a new object and set below properties
 };
 
 showPerson(p3);
+
+
+//Approach #4  Dictionary Notation 
+//Each property can be considered as a key in dictionary
+
+var p4={};
+
+p4["name"]="Avishek";  //same as p4.name
+p4.age=50;  // we can use mixed notations
+
+console.log('p4.name',p4.name);    //dictionary keys can be used in dot notation
+console.log('p4["age"]',p4["age"]); //properties can be acceed in dictionary notation
+
+
