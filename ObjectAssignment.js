@@ -26,8 +26,7 @@ var p = {
     ]
 };
 
-console.log('person.name',p.persons.name);
-console.log('social handles');
+
 for(let per of p.persons){
     console.log('\t',per.show());
     
