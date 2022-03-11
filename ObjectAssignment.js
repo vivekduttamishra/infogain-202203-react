@@ -5,12 +5,18 @@ var p = {
             age:19, 
             show: function(){
                 console.log('Person [ Name='+this.name+'\tage='+this.age+"]");
+            }, 
+            eat: function(){
+                console.log('Person [ Name='+this.name+'\tage='+this.age+"]");
             } 
         },
         {
             name: 'Neha', 
             age:20, 
             show: function(){
+                console.log('Person [ Name='+this.name+'\tage='+this.age+"]");
+            },
+            eat: function(){
                 console.log('Person [ Name='+this.name+'\tage='+this.age+"]");
             } 
         },
@@ -19,16 +25,23 @@ var p = {
             age:21, 
             show: function(){
                 console.log('Person [ Name='+this.name+'\tage='+this.age+"]");
+            },
+            eat: function(){
+                console.log('Person [ Name='+this.name+'\tage='+this.age+"]");
             } 
         },
-       
-        
+      
     ]
 };
 
 
 for(let per of p.persons){
     console.log('\t',per.show());
+    
+}
+
+for(let per1 of p.persons){
+    console.log('\t',per1.eat());
     
 }
 
