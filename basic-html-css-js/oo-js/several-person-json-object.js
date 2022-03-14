@@ -10,13 +10,14 @@ var p = {
         {
             name: 'Prashant', 
             age:26, 
-            food: 'Pizza',
+            // food: 'Pizza',
             eat: function() 
             {
-                return 'Food Name='+this.food+'';
+                // return 'Food='+this.food+'';
+                food= 'Pizza'
             },
             show: function(){
-                return 'Name='+this.name+'\tage='+this.age+'';
+                return 'Name='+this.name+'\tage='+this.age+' '+this.eat()+'';
             } 
         },
         {
@@ -25,10 +26,10 @@ var p = {
             food: 'Panear',
             eat: function() 
             {
-                return 'Food Name='+this.food+'';
+                return 'Food='+this.food+'';
             },
             show: function(){
-               return 'Name='+this.name+'\tage='+this.age+'';
+               return 'Name='+this.name+'\tage='+this.age+' '+this.eat()+'';
             } 
         },
         {
@@ -37,10 +38,10 @@ var p = {
             food: 'Sushi',
             eat: function() 
             {
-                return 'Food Name='+this.food+'';
+                return 'Food='+this.food+'';
             },
             show: function(){
-               return 'Name='+this.name+'\tage='+this.age+'';
+               return 'Name='+this.name+'\tage='+this.age+' '+this.eat()+'';
             } 
         },
         {
@@ -49,10 +50,10 @@ var p = {
             food: 'Biyani',
             eat: function() 
             {
-                return 'Food Name='+this.food+'';
+                return 'Food='+this.food+'';
             },
             show: function(){
-               return 'Name='+this.name+'\tage='+this.age+'';
+               return 'Name='+this.name+'\tage='+this.age+' '+this.eat()+'';
             } 
         },
     ]
@@ -63,7 +64,7 @@ console.log('Persons Name');
 for(let person of p.persons){
     console.log('\t',person.show()); 
 }
-console.log('Food Name');
-for(let person of p.persons){
-    console.log('\t',person.eat()); 
-}
+// console.log('Food Name');
+// for(let person of p.persons){
+//     console.log('\t',person.eat()); 
+// }

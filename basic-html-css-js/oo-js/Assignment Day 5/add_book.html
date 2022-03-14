@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book information</title>
+    <link rel="stylesheet" href="./css/style.css" </head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 class="book-logo">Book's Web</h1>
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./add_book.html">Add Book</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="contact-form" class="py-3">
+        <div class="container">
+            <h3 class="l-heading">Please fill out the book details below.</h3>
+            <form>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" name="author" id="author">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" name="price" id="price">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <input type="text" class="form-control" name="rating" id="rating">
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" class="form-control" name="isbn" id="isbn">
+                </div>
+                <div class="form-group">
+                    <label for="coverphoto">Cover Photo</label>
+                    <input type="file" class="form-control" name="coverphoto" id="coverphoto">
+                </div>
+                <div class="form-group">
+                    <label for="message">description</label>
+                    <textarea name="description" class="form-control" id="description"></textarea>
+                </div>
+                
+                <!-- <button type="submit" class="btn">Submit</button> -->
+                <button type="submit" id="btnsubmit" class="btnsub button">Save</button>
+            </form>
+        </div>
+    </section>
+    <!-- <footer class="main-footer">
+        <p>&copy; <a href="#">booksweb.org</a></p>
+    </footer> -->
+
+
+    <script type="text/javascript">
+        (function()
+        {
+            var bookDetails = {
+                title: "",
+                author: "",
+                price: 0,
+                rating: "",
+                isbn: "",
+                coverphoto: "",
+                description: ""
+            };
+    
+            var storageLogic = {
+                saveItem: function (){
+                    var lscount = localStorage.length;
+                    var inputs = document.getElementsByClassName("form-control");
+                    bookDetails.title = inputs[0].value;
+                    console.log("bookDetails",  bookDetails.title);
+                    bookDetails.author = inputs[1].value;
+                    bookDetails.price = inputs[2].value;
+                    bookDetails.rating = inputs[3].value;
+                    bookDetails.isbn = inputs[4].value;
+                    bookDetails.coverphoto = inputs[5].value;
+                    bookDetails.description = inputs[6].value;
+    
+                    localStorage.setItem("bookDetails_" + lscount, JSON.stringify(bookDetails));
+                    location.reload();
+                    console.log("bookDetails", bookDetails);
+    
+                },
+    
+                // loaddata: function() {
+                //     var datacount = localStorage.length;
+                //     if (datacount > 0)
+                //     {
+                //         var render = "<table border='1'>";
+                //         render += "<tr><th>Cover</th><th>Title</th><th>Author</th>";
+                //         for (i=0; i < datacount; i++) {
+                //             var key = localStorage.key(i);
+                //             var bookDetails = localStorage.getItem(key);
+                //             var data = JSON.parse(bookDetails);
+    
+                //             render += "<tr><td>" + data.coverphoto + "</td>";
+                //             render += "<td>" + data.author + "</td>";
+                //             render += "<td>" + data.title + "</td>";
+                //             // render += "<td>" + data.email + "</td>";
+                //         }
+                //         render += "</table>";
+                //         var newTable = document.getElementById("dvContainer");
+                //         newTable.innerHTML = render;
+                //     }
+                // }
+            };
+            window.onload = function() {
+                // storageLogic.loaddata();
+          var btnsubmit = document.getElementById('btnsubmit');
+          btnsubmit.addEventListener('click', storageLogic.saveItem, false);
+            };
+        })();
+      </script>
+
+</body>
+
+</html>

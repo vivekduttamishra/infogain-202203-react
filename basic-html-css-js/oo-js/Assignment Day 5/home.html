@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book information</title>
+    <link rel="stylesheet" href="./css/style.css" </head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 class="book-logo">Book's Web</h1>
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./add_book.html">Add Book</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="home-book-info">
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Cover</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td id="cover">
+                        <img style="display:block;" width="50%" height="50%" src="./img/acc_god.jpg" />
+                    </td>
+
+                    <td style="height:100%;  width:70%;" id="title">The Accursed God</td>
+                    <td id="author">Vivek Dutta Mishra</td>
+                    <td>
+                        <button><a href="./Book_Details.html">Details</a></button>
+                    </td>
+                    <td>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </table>
+            <div id="dvContainer" class="conatiner">
+            </div>
+        </div>
+    </section>
+    <!-- <footer class="main-footer">
+        <p>&copy; <a href="#">booksweb.org</a></p>
+    </footer> -->
+    <script>
+        (function () {
+            var storageLogic = {
+                loaddata: function () {
+                    var datacount = localStorage.length;
+                    if (datacount > 0) {
+                        var render = "<table border='1'>";
+                        // render += "<tr><th>Cover</th><th>Title</th><th>Author</th>";
+                        for (i = 0; i < datacount; i++) {
+                            var key = localStorage.key(i);
+                            var bookDetails = localStorage.getItem(key);
+                            var data = JSON.parse(bookDetails);
+
+                            render += "<tr><td>" + data.coverphoto + "</td>";
+                            render += "<td style='height:100%;  width:60%;'>" + data.title + "</td>";
+                            render += "<td>" + data.author + "</td>";
+                            render += "<td onclick='clickk(key)'> <button>Details</button> </td>";
+                            render += "<td id='btnrmv'> <button>Delete</button> </td>";
+                        }
+                        render += "</table>";
+                        var newTable = document.getElementById("dvContainer");
+                        newTable.innerHTML = render;
+                    }
+                },
+                remove: function () {
+                    var datacount = localStorage.length;
+                    if (datacount > 0) {
+                        for (i = 0; i < datacount; i++) {
+                            var key = localStorage.key(i);
+                            localStorage.removeItem(key);
+                            window.onload.storageLogic.loaddata();
+                        }
+                    }
+                }
+            }
+            function clickk(element) {
+                var rowData = $(this).parent().children("td").map(function () {
+                    return $(this).text();
+                }).get();
+                // pass to another page
+                window.location = '/Book_Details?params=' + JSON.stringify(rowData);
+            }
+
+            window.onload = function () {
+                storageLogic.loaddata();
+                var btnremove = document.getElementById('btnrmv');
+                btnremove.addEventListener('click', storageLogic.remove, false);
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
