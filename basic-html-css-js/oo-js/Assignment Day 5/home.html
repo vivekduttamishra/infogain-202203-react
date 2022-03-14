@@ -27,17 +27,20 @@
                     <th>Action</th>
                 </tr>
                 <tr>
-                    <td id="cover">
-                        <img style="display:block;" width="50%" height="50%" src="./img/acc_god.jpg" />
+                    <td style="height:30%;  width:30%;" id="cover">
+                        <img style="display:block;" width="20%" height="20%" src="./img/acc_god.jpg" />
                     </td>
 
-                    <td style="height:100%;  width:70%;" id="title">The Accursed God</td>
+                    <td id="title">The Accursed God</td>
                     <td id="author">Vivek Dutta Mishra</td>
                     <td>
                         <button><a href="./Book_Details.html">Details</a></button>
                     </td>
                     <td>
-                        <button>Delete</button>
+                        <button>Remove</button>
+                    </td>
+                    <!-- <button class="button button1"><a href="./Book_Details.html">Details</a></button>
+                        <button class="button button2"><a href="./Book_Details.html">Delete</a></button> -->
                     </td>
                 </tr>
             </table>
@@ -61,11 +64,11 @@
                             var bookDetails = localStorage.getItem(key);
                             var data = JSON.parse(bookDetails);
 
-                            render += "<tr><td>" + data.coverphoto + "</td>";
-                            render += "<td style='height:100%;  width:60%;'>" + data.title + "</td>";
+                            render += "<tr><td style='height:30%;  width:30%'>" + data.coverphoto + "</td>";
+                            render += "<td style='height:100%;  width:70%'>" + data.title + "</td>";
                             render += "<td>" + data.author + "</td>";
-                            render += "<td onclick='clickk(key)'> <button>Details</button> </td>";
-                            render += "<td id='btnrmv'> <button>Delete</button> </td>";
+                            render += "<td> <button>Details</button> </td>";
+                            render += "<td id='btnrmv'> <button>Remove</button> </td>";
                         }
                         render += "</table>";
                         var newTable = document.getElementById("dvContainer");
@@ -83,13 +86,7 @@
                     }
                 }
             }
-            function clickk(element) {
-                var rowData = $(this).parent().children("td").map(function () {
-                    return $(this).text();
-                }).get();
-                // pass to another page
-                window.location = '/Book_Details?params=' + JSON.stringify(rowData);
-            }
+
 
             window.onload = function () {
                 storageLogic.loaddata();
