@@ -8,22 +8,13 @@
 </head>
 <body>
     <script>
-    function average(array) {
-        if (array.length > 0) {
-          var i = 'a',
-            sum = 0,
-            len = array.length;
-          while (i < len) {
-            sum = sum + array[i++];
-          }
-          return sum / len;
-        } else {
-          return null;
-        }
-      }
-      
-      console.log(average([2,3,9,8,11,4,2]));
-      console.log(average([]));
-      </Script>
+        var avg = arr => {
+  var sum = arr.reduce((acc, cur) => acc + cur);
+  var average = sum/arr.length;
+  return average;
+}
+
+console.log(avg([2,3,9,8,11,4,2]));
+    </script>
 </body>
 </html>
