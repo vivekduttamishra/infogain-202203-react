@@ -1,30 +1,25 @@
-function plus(x,y){return x+y;}
-var minus = function(x,y){return x-y;}
-var multiply = function(x,y){return x*y;}
-var divide = function(x,y){return x/y;}
-
-var operations = [plus,minus,multiply,divide] ; // a list of operations
-
-var a=50;
-var b=15;
-   
+//Assignment 14.1 working with calculator to support +, -, *, /
 
 
-for(var i=0;i<operations.length;i++)
-{ 
-    let result=operations[i](a,b);
+function calculator(number1, number2, operator){
+    var result =NaN;
 
-    console.log(a, operations[i].name, b, '=', result);
+    if(operator==='+')
+        result=number1+number2;
+    else if(operator==='-')
+    result=number1-number2;
+    else if(operator==='*')
+    result=number1*number2;
+    else if(operator==='/')
+    result=number1/number2;
+    
+    if(isNaN(result))
+        console.error('invalid operator:'+operator);
+    else
+        console.log(number1,operator,number2,'=', result);
 }
 
 
-
-
-
-
-
-
-
-
-
-
+calculator(12,5,'+');
+calculator(20,4,'-');
+calculator(4, 3, '^');
