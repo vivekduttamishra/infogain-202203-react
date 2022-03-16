@@ -79,12 +79,16 @@
         document.getElementById('console').innerHTML=""
     }
     function resfreshthelist() {
-        document.getElementById('numberList').innerHTML = ""
-    }
+       
+    document.getElementById("numberList").innerHTML = numbersList;
+  }
+    
     function Resetcalculator() {
         document.getElementById('numberList').innerHTML = ""
         document.getElementById('console').innerHTML = ""
         document.getElementById('number').value=''
+        numbersList = [];
+
     }
 </script>
 
