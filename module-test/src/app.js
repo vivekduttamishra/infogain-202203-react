@@ -2,7 +2,7 @@ import { findPrimes } from "./utils/prime";
 
 
 let minBox =  document.getElementById('min');
-let maxBox=  docuemnt.getElementById('max');
+let maxBox=  document.getElementById('max');
 let consoleArea=document.getElementById('console');
 
 

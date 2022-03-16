@@ -14,7 +14,7 @@ const isPrime=(number)=>{
 
 export function findPrimes(min,max){
 
-    return new Promise( (resolve, resolve ) =>{
+    return new Promise( (resolve, reject ) =>{
 
         setTimeout(()=>{
             if(min>=max)
