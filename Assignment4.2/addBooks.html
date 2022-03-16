@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Navigation Bar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initaial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="name">
+            <p>Book's Web</p>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="addBooks.html" class="active">Add Book's</a></li>
+        </ul>
+    </nav>
+
+    <div class="body details">
+        <label>Title:</label><input type='text' id='title' />
+        <label>Author:</label><input type='text' id='author' />
+        <label>Price:</label><input type='number' id='price' />
+        <label>Rating:</label><input type='number' id='rating' />
+        <label>Description:</label><input type='text' id='description' />
+
+        <a class="saveButton" onclick="handleSave()" href="index.html">Save</a>
+    </div>
+</body>
+<script>
+    if (!localStorage.getItem('Books')) {
+        localStorage.setItem('Books', JSON.stringify([]));
+    }
+
+    function handleSave() {
+        let title = document.getElementById('title').value;
+        let author = document.getElementById('author').value;
+        let price = document.getElementById('price').value;
+        let rating = document.getElementById('rating').value;
+        let description = document.getElementById('description').value;
+
+        let books = JSON.parse(localStorage.getItem('Books'));
+        books.push({ 'title': title, 'author': author, 'price': price, 'rating': rating, 'description': description });
+
+        localStorage.setItem('Books', JSON.stringify(books));
+    }
+</script>
+
+</html>

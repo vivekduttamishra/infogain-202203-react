@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Navigation Bar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initaial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+       table,th,td{
+           border: 1px solid green;
+
+       }
+       table{
+           width: 100%;
+       }
+    </style>
+</head>
+
+
+<body>
+
+    <nav>
+        <div class="name">
+            <p>Book's Web</p>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="addBooks.html" class="active">Add Book's</a></li>
+        </ul>
+    </nav>
+    <div class="body details" id="body">
+        <h1 id="title" class="title">Title</h1>
+        <h3 id="authName">name</h3>
+        <div>
+            <table>
+                <tr><th>Covetr</th>
+                     <th>Title</th>
+                     <th>Author</th>
+                     <th>Details</th>
+                     <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>The Art Of Happiness</td>
+                        <td>Dalai Lama Howward C.Cutler</td>
+                        <td> <a href="new3.html">Details</a></td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>A Tale of Two Cities </td>
+                        <td>Charles Dickens</td>
+                        <td> <a href="new1.html">Details</a></td>
+                        <td><button>Delete</button></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Rich Dad poor Dad</td>
+                        <td>Sharon Lechter</td>
+                        <td><a href="new2.html"> Details</a></td>
+                        <td> <button>Delete</button></td>
+
+                    </tr>
+            </table>
+        </div>
+</body>
+<script>
+    var book = JSON.parse(localStorage.getItem('selectedBook'))[0];
+    document.getElementById('title').innerHTML = book.title;
+    document.getElementById('authName').innerHTML = book.author;
+    document.getElementById('price').innerHTML = book.price;
+    document.getElementById('rating').innerHTML = book.rating;
+    document.getElementById('desc').innerHTML = book.description;
+
+</script>
+
+</html>

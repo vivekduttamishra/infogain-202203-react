@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Navigation Bar</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initaial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+	<nav>
+		<div class="name">
+			<p>Book's Web</p>
+		</div>
+		<ul>
+			<li><a href="" class="active">Home</a></li>
+			<li><a href="addBooks.html">Add Book's</a></li>
+		</ul>
+	</nav>
+	<div class="body">
+		<table class="content-table" id="tbl" BORDER=1 FRAME=VOID RULES=ALL>
+			<tr>
+				<th>Cover</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Details</th>
+				<th>Action</th>
+			</tr>
+			<tbody>
+				 <tr>
+					<td></td>
+					<td>War and Peace</td>
+					<td>Leo Tolstoy</td>
+					<td>-</td>
+				</tr>
+				<tr class="active-row">
+					<td></td>
+					<td>In Search of Lost Time</td>
+					<td>Marcel Proust</td>
+					<td>-</td>
+				</tr> 
+			</tbody>
+		</table>
+
+	</div>
+	<script>
+
+		let books = JSON.parse(localStorage.getItem('Books'));
+
+		books.map(e => {
+			var tr = document.createElement('tr');
+
+			var td1 = tr.appendChild(document.createElement('td'));
+			var td2 = tr.appendChild(document.createElement('td'));
+			var td3 = tr.appendChild(document.createElement('td'));
+			var td4 = tr.appendChild(document.createElement('td'));
+			var td5 = tr.appendChild(document.createElement('td'));
+
+			let bookTitle = JSON.stringify(e.title);
+
+			td1.innerHTML = '';
+			td2.innerHTML = e.title;
+			td3.innerHTML = e.author;
+			td4.innerHTML = `<a name=${e.author} id=${bookTitle} value="Details" onclick="selectedBook(this);" href="bookDetails.html">Details</a>`
+			td5.innerHTML = `<input type="button" id=${bookTitle} value="Delete" onclick="delBook(this);">`
+
+			document.getElementById("tbl").appendChild(tr);
+		})
+
+		function delBook(book) {
+		let allBooks = JSON.parse(localStorage.getItem('Books'));
+
+			var s = book.parentNode.parentNode;
+			s.parentNode.removeChild(s);
+			let selectedTitle = book.id;
+			let delBook = allBooks.filter(e => e.title != selectedTitle);
+			localStorage.setItem('Books', JSON.stringify(delBook));
+		}
+
+		function selectedBook(book) {
+			let selectedTitle = book.id;
+			let selectedBook = books.filter(e => e.title == selectedTitle);
+			localStorage.setItem('selectedBook', JSON.stringify(selectedBook));
+		}
+
+		function onDeleteBook(e) {
+			if (!e.target.classList.contains("deleteBtn")) {
+				return;
+			}
+
+			const btn = e.target;
+			btn.closest("tr").remove();
+		}
+	</script>
+</body>
+
+</html>
