@@ -1,0 +1,1 @@
+ result=result.concat(airlineResult.flights);

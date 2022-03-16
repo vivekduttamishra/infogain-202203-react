@@ -22,4 +22,19 @@ console.log('numbers is :',numbers);
 console.log('others is:',others);
 
 
+function average(...nums) {
+    let total = 0;
+    for(const num of nums) {
+    total += num/nums.length;
+    }
+    return total;
+}
+console.log(average(2,3,9,8,11,4,2));
+
+
+
+
+// calculator Assignment.
+
+
 

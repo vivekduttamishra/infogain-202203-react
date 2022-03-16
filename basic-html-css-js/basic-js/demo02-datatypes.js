@@ -40,4 +40,7 @@ console.log(typeof k, k);
 console.log(typeof l, l);
 console.log(typeof m, m);
 console.log(typeof n, n);
-console.log(o);  //o as a reference is undefined
+
+
+var o= new Date();
+console.log(typeof o, o);
