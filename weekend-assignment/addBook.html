@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        a {
+
+            display: inline-block;
+            padding: 10px;
+            color: blue;
+
+        }
+
+        form {
+            display: table;
+        }
+
+        p {
+            display: table-row;
+        }
+
+        label {
+            display: table-cell;
+        }
+
+        input {
+            display: table-cell;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Add Book </title>
+</head>
+<script>
+
+    function saveBook() {
+        let bookData = {
+            isbn: document.getElementById('isbn').value,
+            title: document.getElementById('titile').value,
+            author: document.getElementById('author').value,
+            price: document.getElementById('price').value,
+            rating: document.getElementById('rating').value,
+            description: document.getElementById('description').value,
+            cover: document.getElementById('cover').value,
+        }
+
+        let booksList = JSON.parse(localStorage.getItem('booksList'))
+        booksList.push(bookData)
+        localStorage.setItem('booksList', JSON.stringify(booksList))
+
+    }
+</script>
+
+<body>
+    <nav>
+        <a href=" ">Books Web</a>
+        <a href="booksList.html">Home</a>
+        <a href="addBook.html">Add Book</a>
+
+    </nav>
+
+    <br><br><br>
+
+    <div id='description'>
+        <form>
+            <p>
+                <label><b>Title : </b></label>
+                <input type="text" name="message" id="titile"></br></br>
+            </p>
+            <p>
+                <label><b>Author : </b></label>
+                <input type="text" name="message" id="author"></br></br>
+            </p>
+            <p>
+                <label><b>Price :</b></label>
+                <input type="text" name="message" id="price"></br></br>
+            </p>
+            <p>
+                <label><b>Rating :</b></label>
+                <input type="text" name="message" id="rating"></br></br>
+            </p>
+            <p>
+                <label><b>Cover : </b></label>
+                <input type="url" name="message" id="cover"></br></br>
+            </p>
+            <p>
+                <label><b>ISBN : </b></label>
+                <input type="text" name="message" id="isbn"></br></br>
+            </p>
+            <p>
+                <label><b>Desctiption : </b></label>
+                <input type="text" name="message" id="description"></br></br>
+            </p>
+        </form>
+        <button onclick="saveBook()">
+            Save
+        </button>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<style>
+  a {
+    display: inline-block;
+    padding: 10px;
+    color: blue;
+  }
+
+  h2 {
+    color: coral;
+    width: 50%;
+    height: 2%;
+    text-align: left;
+  }
+</style>
+
+<head>
+  <title>Description</title>
+
+  <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<script>
+  window.onload = function () {
+    var url = document.location.href,
+      params = url.split("?")[1].split("&"),
+      data = {},
+      tmp;
+
+    for (var i = 0, l = params.length; i < l; i++) {
+      tmp = params[i].split("=");
+
+      data[tmp[0]] = tmp[1];
+    }
+
+    var booksList = JSON.parse(localStorage.getItem("booksList"));
+
+    const book = booksList.find((element) => {
+      if (element.isbn === data.id) {
+        return element;
+      }
+    });
+    console.log(book);
+
+    var description = document.getElementById("description");
+
+    var h2 = document.createElement("h2");
+
+    h2.append(document.createTextNode(book.title));
+
+    var p = document.createElement("p");
+
+    p.append(document.createTextNode('By ' + '' + book.author));
+
+    var p2 = document.createElement("p");
+
+    p2.append(document.createTextNode('price:' + " " + book.price));
+
+    var img = document.createElement("img");
+
+    img.src = book.cover;
+
+    var p3 = document.createElement("p");
+
+    p3.append(document.createTextNode('Desciption:' + "  " + book.description));
+
+    description.appendChild(img);
+
+    description.appendChild(h2);
+
+    description.appendChild(p);
+
+    description.appendChild(p2);
+    description.appendChild(p3);
+  };
+</script>
+
+<body>
+  <nav>
+    <a href=" ">Books Web</a>
+    <a href="booksList.html">Home</a>
+    <a href="addBook.html">Add Book</a>
+  </nav> <br /><br />
+
+  <div id="description"></div>
+</body>
+
+</html>
