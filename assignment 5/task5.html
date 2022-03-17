@@ -1,0 +1,57 @@
+<script>
+    function isPrime(number){
+        if(number<2)
+         return false;
+         for(let i = 2; i<number;i++)
+         if(number % i === 0)
+          return false;
+
+     return true;
+    }
+
+    function findPrimePromise(min, max){
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                if(min >=max)
+                 return reject(new Error(`Invalid range(${max})`));
+                 let result = {min,max,primes:
+                []}
+                let low =min;
+                let high =max;
+
+                const primelnterval = setInterval(()=>{
+                    for (let i = low;i<high;i++){
+                        if(isPrime(i))
+                        result.primes.push(i)
+                    }
+                    if (high===max){
+                        clearInterval(primelnterval);
+                        console.log(result);
+                        return resolve(result);
+                    }
+                    low =high;
+                    high=max;
+                },100);
+
+            },100);
+        });
+    }
+
+    async function primeslnRange(min,max){
+
+        console.log(`finding primenumbers between ${min}-${max}`);
+        try{
+             const result = await findPrimePromise(min,max);
+
+             console.log(`total primenumbers in range(${result.min}-${result.max})is ${result.primes.legth}`);
+
+        } catch (error){
+            console.error(error.message)
+        }
+    }
+    primeslnRange(2,25000);
+    primeslnRange(2,1000);
+    primeslnRange(10,2000);
+    primeslnRange(2,3000);
+
+</script>
