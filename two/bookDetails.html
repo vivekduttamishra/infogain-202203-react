@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Navigation Bar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initaial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+
+<body>
+
+    <nav>
+        <div class="name">
+            <p>Book's Web</p>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="addBooks.html" class="active">Add Book's</a></li>
+        </ul>
+    </nav>
+    <div class="body details" id="body">
+        <h1 id="title" class="title">Title</h1>
+        <h3 id="authName">name</h3>
+        <div>
+            <label>Price:</label> <span id="price">NA</span>
+        </div>
+        <div>
+            <label>Rating:</label> <span id="rating">NA</span>
+        </div>
+        <label class="dec">Description:</label><span id="desc">NA</span>
+    </div>
+</body>
+<script>
+    var book = JSON.parse(localStorage.getItem('selectedBook'))[0];
+    document.getElementById('title').innerHTML = book.title;
+    document.getElementById('authName').innerHTML = book.author;
+    document.getElementById('price').innerHTML = book.price;
+    document.getElementById('rating').innerHTML = book.rating;
+    document.getElementById('desc').innerHTML = book.description;
+
+</script>
+
+</html>
