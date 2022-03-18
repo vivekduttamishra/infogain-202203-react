@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body class='container'>
+    <div class='jumbotron'>
+        <h1 >Hello World</h1>
+    </div>
+    
+
+    <h2 class='text text-primary' id='greet'></h2>
+
+    <button class='btn btn-sm btn-primary' id="greetButton">Greet <i class="fa fa-user"></i> </button>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    
+   
+    <script>
+
+        $("#greetButton").click(()=>{
+            $("#greet").html("Welcome to NPM App");
+        });
+
+    </script>
+
+</body>
+</html>
