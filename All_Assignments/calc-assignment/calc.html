@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 
@@ -7,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 
     <style>
@@ -17,7 +15,7 @@
         }
     </style>
 
-   
+
 
 </head>
 
@@ -27,31 +25,29 @@
         <div>
             Number
             <input type='text' id='number' />
-            <input type='button' value='Add To List' onclick="doAddToList()"   />
-            
-            <input type='button' value='Clear Display' 
-                    onClick="clearUI();"
-                    />
-            
-            <input type='button' value='Reset Calculator' 
-                    onClick="reset();"
-                    />
+            <input type='button' id="addtolist" onclick="addToList()" value='Add To List' />
 
-            <br/>
-            <input type='button' value='Sum' onclick="doSum();"    />
-            <input type='button' value='Average'  onclick="doAverage();" />
-            <input type='button' value='Find Min'   />
+            <input type='button' value='Clear Display' onclick="clearDisplays()" id="clearDisplay" />
+
+            <input type='button' value='Reset Calculator' onclick="resetCall()" />
+
+            <br />
+            <input type='button' value='Sum' onclick="sum()" />
+            <input type='button' value='Average' onclick="averageNum()" />
+            <input type='button' value='Find Min' id="minValue" onclick="findMinofValue()" />
 
         </div>
 
     </fieldset>
 
-    <hr/>
+    <hr />
 
     <fieldset>
         <legend>Console</legend>
 
         <div id='console'>
+            <p id="minval"></p>
+            <p id="error"></p>
             <!-- <p>sum is 60</p>
             <p>average is 20</p> -->
         </div>
@@ -62,17 +58,16 @@
         <legend>Number List</legend>
 
         <ul id='numberList'>
+
             <!-- <li>29</li>
             <li>11</li>
             <li>10</li> -->
         </ul>
 
-        <input type='button' value='refresh list' onclick="refreshList();" />
+        <input type='button' value='refresh list' onclick="lstRefresh()" />
     </fieldset>
 
-  
     <script src="calc.js"></script>
-    
 </body>
 
 </html>
