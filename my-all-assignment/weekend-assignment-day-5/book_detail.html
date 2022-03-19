@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book information</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 class="book-logo">Book's Web</h1>
+                <ul>
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="./add_book.html">Add Book</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="book-info">
+        <div class="container">
+            <div class="book-img" id="cover">
+                <img src="#" />
+            </div>
+            <div class="book-content">
+                <h2 id="title"></h2>
+                <h4 id="author"></h4>
+                <ul id="Bok-info">
+                    <li id="isbn"><span class="Bok-sub-info">ISBN:</span></li>
+                    <li id="price"><span class="Bok-sub-info">Price:</span> </li>
+                    <li id="rating"><span class="Bok-sub-info">Rating:</span> </li>
+                </ul><br />
+                <h3>Details:- </h3>
+                <p style="text-align: justify;" id="description">
+
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- <footer class="main-footer">
+        <p>&copy; <a href="#">booksweb.org</a></p>
+    </footer> -->
+
+    <script>
+        var book = JSON.parse(localStorage.getItem('getBook'))[0];
+
+        var getCover = document.getElementById('cover');
+        var getTitle = document.getElementById('title');
+        var getAuthor = document.getElementById('author');
+        var getIsbn = document.getElementById('isbn');
+        var getPrice = document.getElementById('price');
+        var getRating = document.getElementById('rating');
+        var getDesc = document.getElementById('description');
+
+        getCover.innerHTML = book.coverphoto;
+        getTitle.innerHTML = book.title;
+        getAuthor.innerHTML = book.author;
+        getIsbn.innerHTML = book.isbn;
+        getPrice.innerHTML = book.price;
+        getRating.innerHTML = book.rating;
+        getDesc.innerHTML = book.description;
+    </script>
+
+</body>
+
+</html>

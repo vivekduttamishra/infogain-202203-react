@@ -3,7 +3,8 @@
 
 <head>
     <title>Book information</title>
-    <link rel="stylesheet" href="./css/style.css" </head>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
 
 <body>
     <header>
@@ -50,68 +51,14 @@
                     <textarea name="description" class="form-control" id="description"></textarea>
                 </div>
 
-                <!-- <button type="submit" class="btn">Submit</button> -->
-                <button type="submit" id="btnsubmit" class="btnsub button">Save</button>
+                <button type="submit" onclick="saveBook();" id="btnsubmit" class="btnsub button">Save</button>
             </form>
         </div>
     </section>
-    <!-- <footer class="main-footer">
+    <footer class="main-footer">
         <p>&copy; <a href="#">booksweb.org</a></p>
-    </footer> -->
-
-
-    <script type="text/javascript">
-        (function () {
-            var bookDetails = {
-                title: "",
-                author: "",
-                price: 0,
-                rating: "",
-                isbn: "",
-                coverphoto: "",
-                description: ""
-            };
-
-            var storageLogic = {
-                saveItem: function () {
-                    var lscount = localStorage.length;
-                    var inputs = document.getElementsByClassName("form-control");
-                    var coverphoto = document.getElementById("coverphoto");
-
-                    bookDetails.title = inputs[0].value;
-                    console.log("bookDetails", bookDetails.title);
-                    bookDetails.author = inputs[1].value;
-                    bookDetails.price = inputs[2].value;
-                    bookDetails.rating = inputs[3].value;
-                    bookDetails.isbn = inputs[4].value;
-                    // bookDetails.coverphoto = coverphoto[5].value;
-                    bookDetails.description = inputs[6].value;
-
-                    var imgCanvas = document.createElement("canvas"),
-                        imgContext = imgCanvas.getContext("2d");
-                    imgCanvas.width = bookDetails.coverphoto.width;
-                    imgCanvas.height = bookDetails.coverphoto.height;
-                    imgContext.drawImage(coverphoto, 0, 0, bookDetails.coverphoto.width, bookDetails.coverphoto.height);
-                    bookDetails.coverphoto = imgCanvas.toDataURL("image/png");
-                    // try {
-                        // localStorage.setItem("coverphoto" + lscount, imgAsDataURL);
-                    // }
-                    // catch (e) {
-                    //     console.log("Storage failed: " + e);
-                    // }
-
-                    localStorage.setItem("bookDetails_" + lscount, JSON.stringify(bookDetails));
-                    location.reload();
-                    console.log("bookDetails", bookDetails);
-                }
-            };
-            window.onload = function () {
-                // storageLogic.loaddata();
-                var btnsubmit = document.getElementById('btnsubmit');
-                btnsubmit.addEventListener('click', storageLogic.saveItem, false);
-            };
-        })();
-    </script>
+    </footer>
+    <script src="./js/main.js"></script>
 
 </body>
 
