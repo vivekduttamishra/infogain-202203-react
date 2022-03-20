@@ -1,0 +1,41 @@
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+    <title>Sample node js project</title>
+</head>
+<body class='container'>
+    <div class='jumbotron'>
+        <h1 >Hello World</h1>
+    </div>
+    
+
+    <h2 class='text text-primary' id='greet'></h2>
+    
+    <h6 class='text ' id='info'></h6>
+
+    <img src=" https://m.media-amazon.com/images/I/41-KqB1-cqL.jpg" height="200px" width="200px">
+    <button class='btn btn-sm btn-primary' id="greetButton">Greet <i class="fa fa-user"></i> </button>
+    <button class='btn btn-sm btn-primary' id="infoButton">Info <i class="fa fa-book"></i> </button>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    
+   
+    <script>
+
+        $("#greetButton").click(()=>{
+            $("#greet").html("Welcome to NPM Book App");
+        });
+
+
+        $("#infoButton").click(()=>{
+            $("#info").html("The story of the epic battle of Kurukshetra has been told and retold for ages. Millennia of dust, fables, imaginations — and the epic itself is lost. What remained is the story of a family feud and ambition of Kauravas and Pandavas. But why, then, was this an epic war? Why entire Aryavart plunged into this first real world-war? Why the echo of this ancient war still resonates after all those centuries? Rediscover the lost epic whose origin lies in the birth of the Kurukshetra that had tasted its first blood over a hundred years before the final Mahabharata war. Discover the complete saga of Mahabharata which goes far and beyond just Kauravas and Pandavas and their ambitions");
+        });
+    </script>
+
+</body>
+</html>

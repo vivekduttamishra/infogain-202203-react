@@ -1,0 +1,16 @@
+{
+  "name": "simple-nodejs-project",
+  "version": "1.0.0",
+  "description": "a simple  nodejs project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "purva",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0"
+  }
+}
