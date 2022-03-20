@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>
+            Reg. Form Using local storage js-part4
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+      
+      <div class="container">
+        <div class="col-sm-6" style="border: 1px solid gray;">
+        <h2>Add a Book Form</h2>
+        <form action="#">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title of book" name="title">
+              </div>
+
+          <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" class="form-control" id="author" placeholder="Enter author" name="author">
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
+          </div>
+
+
+          <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="number" class="form-control" id="rating" placeholder="Enter rating" name="rating">
+          </div>
+
+          <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <input type="number" class="form-control" id="isbn" placeholder="Enter rating" name="isbn">
+          </div>
+
+
+          <div class="form-group ">
+            <label for="description">Description:</label>
+            <input type="textarea" class="form-control" id="description" placeholder="write something about book"
+             name="description">
+          </div>
+
+
+
+
+          
+         
+          <button type="button" onclick="saveData()" id="save_btn" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+      <div class="col-sm-6" style="border: 1px solid gray;">
+        <h2 style="text-align: center;">Books Table</h2>
+        <div class="row">
+          <div class="col-sm-4" style="background-color: #ffdc5c;padding: 10px;">Price</div>
+          <div class="col-sm-4" style="background-color: #38b7ff;padding: 10px;">Title</div>
+          <div class="col-sm-4" style="background-color: #ff914d;padding: 10px;">Author</div>
+
+        </div>
+        <div id="showBooks"></div>
+      </div>
+      </div>
+      <a href="index.html">home</a>
+      </body>
+      <script>
+        showData();
+function saveData()
+{
+let price,title,author;
+price=document.getElementById("price").value;
+title=document.getElementById("title").value;
+
+author=document.getElementById("author").value;
+
+let book_records=new Array();
+book_records=JSON.parse(localStorage.getItem("books"))?JSON.parse(localStorage.getItem("books")):[]
+if(book_records.some((v)=>{return v.title==title}))
+{
+  alert("duplicate data");
+}
+else
+{
+    book_records.push({
+  "price":price,
+  "title":title,
+  "author":author
+})
+localStorage.setItem("books",JSON.stringify(book_records));
+}
+showData();
+}
+
+function showData()
+{
+  document.getElementById("showBooks").innerHTML="";
+  let book_records=new Array();
+  book_records=JSON.parse(localStorage.getItem("books"))?JSON.parse(localStorage.getItem("books")):[]
+  if(book_records)
+  {
+    for(let i=0;i<book_records.length;i++)
+    {
+      let addDiv=document.createElement('div');
+  addDiv.className="row";
+  addDiv.innerHTML='  <div class="col-sm-4" style="padding: 10px;">'+book_records[i].price+'</div><div class="col-sm-4" style="padding: 10px;">'+book_records[i].title+'</div><div class="col-sm-4" style="padding: 10px;">'+book_records[i].author+'</div>';
+  document.getElementById("showBooks").appendChild(addDiv);
+
+    }
+  }
+  }      
+          </script>
+      </html> 

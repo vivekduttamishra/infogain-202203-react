@@ -1,0 +1,26 @@
+{
+  "name": "work",
+  "version": "1.0.0",
+  "description": "Please follow the instruction to prepare yourself for the course.",
+  "main": "avg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekduttamishra/infogain-202203-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vivekduttamishra/infogain-202203-react/issues"
+  },
+  "homepage": "https://github.com/vivekduttamishra/infogain-202203-react#readme",
+  "dependencies": {
+    "awesome": "^0.0.7",
+    "bootstrap": "^5.1.3",
+    "font": "^0.0.4",
+    "jquery": "^3.6.0",
+    "webpack": "^5.70.0"
+  }
+}
