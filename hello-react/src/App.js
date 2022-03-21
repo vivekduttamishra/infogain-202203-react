@@ -5,21 +5,26 @@ const headerStyle = {
     color: "red"
 }
 
-function SiteTitle() {
+function SiteTitle(args) {
 
-    return <h1>Book's Web</h1>;
+    console.log('args',args);
+    
 
+    return <h1>{args.children}</h1>;
 }
 
 class Header extends React.Component {
     render() {
         return <div style={headerStyle}>
-            <SiteTitle />
-            <p>World of books...</p>
+
+            <SiteTitle text="WWBooks" color="white" >
+                World Wide Books
+            </SiteTitle>
+            
+            <p>{this.props.subtitle}</p>
         </div>
     }
 }
-
 
 const HomePage = ()=> <div>
     <h2>Home Page</h2>
@@ -30,7 +35,7 @@ const HomePage = ()=> <div>
 const App = ()=>{
 
     return <div >
-        <Header />
+        <Header subtitle="Home of all books of the world"/>
         <HomePage/>
     </div>;
 }
