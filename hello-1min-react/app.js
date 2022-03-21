@@ -1,19 +1,12 @@
 
 var placeholder = document.getElementById('placeholder');
 
-var component = React.createElement(
-    "div", {style:{color:'white',background:'black'}},
-    React.createElement("h2",null,"Hello React"),
-    React.createElement("a", {
-                    href:"reactjs.org",
-                    style:{
-                        color:'orangered',
-                        fontWeight:'bold',
-                        textDecoration:'none',
-                        
-                    }
-            },"React Home Page")
-)
+var component = <div>
+                    <h1>Hello React JSX World!</h1>
+                    <div className="container">
+                        <p>Welcome to the World of React</p>
+                    </div>
+                </div> ;
 
 
 //we can't add react component directly to DOM
