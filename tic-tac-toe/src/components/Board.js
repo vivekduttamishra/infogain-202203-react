@@ -3,17 +3,20 @@ import Cell from './Cell';
 const Game=()=>{
     return (
         <div className='board'>
-            <Cell/>
-            <Cell/>
-            <Cell/>
+            
+            <Cell value='-' id={0} />
+            <Cell value='-' id={1} />
+            <Cell value='-' id={2} />
+            
+            <Cell value='-' id={3} />
+            <Cell value='-' id={4} />
+            <Cell value='-' id={5} />
+            
+            <Cell value='-' id={6} />
+            <Cell value='-' id={7} />
+            <Cell value='-' id={8} />          
 
-            <Cell/>
-            <Cell/>
-            <Cell/>
-
-            <Cell/>
-            <Cell/>
-            <Cell/>
+            
         </div>
     )
 };
