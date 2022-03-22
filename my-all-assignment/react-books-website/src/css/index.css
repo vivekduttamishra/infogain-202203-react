@@ -1,0 +1,253 @@
+.App {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7em;
+}
+
+.container {
+  margin: auto;
+  /* max-width: 1100px; */
+  overflow: auto;
+  padding: 0 20px;
+}
+
+#navbar {
+  background: #343a40!important;
+  color: #fff;
+  overflow: auto;
+}
+
+.book-logo a{
+  color: #fff;
+  display: inline-block;
+    /* padding-top: 0.3125rem; */
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+#navbar h1 {
+  float: left;
+  padding-top: 20px;
+}
+
+#navbar ul {
+  list-style: none;
+  float: left;
+}
+
+#navbar ul li {
+  float: left;
+}
+
+#navbar ul li a {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: rgb(190, 187, 187);
+  text-decoration: none;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a.current {
+  /* background: #444; */
+  color: #fff;
+}
+.search-container {
+  float: right;
+}
+
+.search-container input[type=text] {
+  padding: 6px;
+  margin-top: 18px;
+  font-size: 17px;
+  border: none;
+}
+
+.search-container .btnsearch {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  color: #28a745;
+    border-color: #28a745;
+}
+
+
+.search-container .btnsearch:hover {
+  background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Navigation Dropdown */
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown .dropbtn {
+  background-color: transparent;
+  color: #fff;
+  margin-left: 30px;
+  margin-right: 20px;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: transparent
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0.25rem;
+  align-items: center;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 0.25rem;
+  text-align: left;
+ 
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Footer */
+.main-footer p{
+  /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #000;
+    text-align: center;
+}
+
+.main-footer a {
+    color: #fff
+}
+
+.main-footer a:hover {
+  color: rgb(211, 11, 11);
+}
+
+/* Header Body */
+
+
+.bokname {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#book-info .book-img {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.book-content{
+  font-family: "Shadows Into Light",cursive;
+    text-align: center;
+    font-size: 1em;
+  text-justify: auto;
+   margin-top: 10px;
+}
+
+.authorname{
+  font-family: "Allison",cursive;
+    font-size: 1em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+ /* Contact Form */
+ /* #contact-form .form-group {
+  margin-bottom: 10px;
+}
+
+#contact-form label {
+  display: block;
+  margin-bottom: 15px;
+} */
+
+.btnsub{
+  margin: 5px;
+  display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+#contact-form input, 
+#contact-form textarea {
+  padding: 10px;
+  width: 100%;
+  border: 1px rgb(163, 159, 159) solid;
+  margin-bottom: 20px;
+}
+
+#contact-form textarea {
+  height: 100%;
+}
+
+#contact-form input:focus, 
+#contact-form textarea:focus {
+  outline: none;
+  border-color: #f7c08a;
+}
+
+.l-heading{
+  font-family: "Shadows Into Light",cursive;
+    text-shadow: -2px -2px 2px grey;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -13,7 +13,6 @@ class bookManager {
     removeBook() {
         bokDelete();
      }
-
 }
 
 let book = new bookManager();
