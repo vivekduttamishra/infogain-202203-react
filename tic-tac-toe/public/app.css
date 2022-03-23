@@ -58,3 +58,7 @@
     height:80px;
     background-color:white;
 }
+
+.clock{
+    align-self: center;
+}
