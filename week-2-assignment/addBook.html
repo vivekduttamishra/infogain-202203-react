@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        form {
+            display: table;
+        }
+
+        p {
+            display: table-row;
+        }
+
+        label {
+            display: table-cell;
+        }
+
+        input {
+            display: table-cell;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+</head>
+<script>
+
+
+</script>
+
+<body>
+    <nav>
+        <a href=" ">Books Web</a>
+        <a href="index.html">Home</a>
+        <a href="addBook.html">Add Book</a>
+    </nav> <br /><br />
+    <br><br><br>
+
+    <div id='description'>
+        <form>
+            <p>
+                <label><b>Title : </b></label>
+                <input type="text" name="message" id="titile"></br>
+            </p>
+            <p>
+                <label><b>Author : </b></label>
+                <input type="text" name="message" id="author"></br>
+            </p>
+            <p>
+                <label><b>Price :</b></label>
+                <input type="text" name="message" id="price"></br>
+            </p>
+            <p>
+                <label><b>Rating :</b></label>
+                <input type="text" name="message" id="rating"></br>
+            </p>
+            <p>
+                <label><b>Cover : </b></label>
+                <input type="text" name="message" id="cover"></br>
+            </p>
+            <p>
+                <label><b>ISBN : </b></label>
+                <input type="text" name="message" id="isbn"></br>
+            </p>
+            <p>
+                <label><b>Desctiption :</b></label>
+                <input type="text" name="message" id="description"></br>
+            </p>
+        </form>
+        <button id='SaveBtn' onclick="addBookToList()">
+            Save
+        </button>
+    </div>
+    <script src="scripts/bookManager.js"></script>
+    <script src='scripts/index.js'></script>
+    <script src='scripts/addbook.js'></script>
+</body>
+
+</html>

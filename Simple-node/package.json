@@ -1,0 +1,16 @@
+{
+  "name": "simple-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prasanna Babu",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0"
+  }
+}
