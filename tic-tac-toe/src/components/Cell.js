@@ -1,35 +1,22 @@
 import React from 'react';
 
 
-class Cell extends React.Component {
 
-    constructor(props) {
-        super(props);
+const Cell=({id, value, onCellClick})=>{
 
-        this.state={
-            value: '-'
-        };
-    }
+    value = value || '-';  //if props.value === falsy use '-' 
 
-    handleClick=()=>{
-        //this change, will not reflect in react
-        const newValue= this.state.value==='O'?'X':'O';
-        console.log(`value for cell # ${this.props.id} changed to ${newValue}`);
-
-        //this change will reflect in React and UI will updated
-
-        this.setState({value:newValue});
-    }
+    let style={
+        color: value==='-' ? "transparent" : null
+    };
 
 
-    render=()=>{
-
-        return <button 
-            onClick={this.handleClick}
-            className="cell">{this.state.value}</button>;
-    }
-
+    return <button 
+        style={style}
+        onClick={ ()=> onCellClick(id)}
+        className="cell">{value}</button>;
 }
+
 
 
 

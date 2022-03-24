@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-
 .app{
     background:lightyellow;
     width: 400px;
@@ -50,30 +48,9 @@
     border:2px solid orange;
 }
 .cell{
-    font-family: 'Indie Flower', cursive;
-    font-size:60px;
     padding:5px;
     margin:0px;
     width:80px;
     height:80px;
     background-color:white;
-}
-
-.clock{
-    align-self: center;
-}
-.scoreboard{
-    align-self: center;
-    
-}
-.scoreboard table{
-    border: 1px solid black;
-}
-.scoreboard th{
-    padding: 10px;
-}
-.scoreboard td{
-    padding: 10px;
-    border: 1px solid black;
-    text-align: center;
 }
