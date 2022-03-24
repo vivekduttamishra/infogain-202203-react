@@ -1,0 +1,33 @@
+.list-item{
+    font-size:1.2em;
+    padding-bottom:5px;
+    border-bottom: 1px solid gray;
+    padding-top: 15px;
+    display:flex;
+}
+
+.list-item:hover{
+    background-color:lightyellow;
+}
+
+.list-item img{
+    height:150px;
+}
+
+.list-info{
+    margin-left:10px;
+    display:flex;
+    flex-direction:column;
+    padding:0px;
+    align-items:flex-start;
+    justify-content: flex-start;
+    
+}
+
+.list-item .title{
+    font-size:1.2em;
+    
+}
+.list-item .author{
+    font-size:1em;
+}
