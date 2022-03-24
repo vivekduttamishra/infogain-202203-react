@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Of Books</title>
+    <style>
+        ul{
+            background-color:red;
+            margin:auto;
+            padding:14px;
+            border:2px solid;
+            width:30%;
+            text-align: center;
+            margin-top:10%;
+            box-shadow: 0 0 10px black;
+            transition: all 0.8s;
+            filter: grayscale(100%);
+            color:white;
+
+        }
+        li{
+            list-style: none;
+            border:1px solid;
+            margin:5px;
+            padding:8px;
+
+        }
+        
+        table{
+            margin:auto;
+            border-collapse: collapse;
+            background-color:green;
+            border:1px solid;
+            color:white;
+            margin-top:20px;
+            box-shadow: 0 0 10px black;
+            text-shadow:  0 0 10px black;
+            
+           
+
+        }
+        th,td{
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>
+            Enter Title:
+            <input type="text" id="Title">
+        </li>
+        <li>
+            Enter Author:
+            <input type="text" id="Author">
+        </li>
+        <li>
+            Enter Price:
+            <input type="Number" id="Number">
+        </li>
+        <li>
+            select Rating:
+            <select name="" id="Rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+            </select>
+        </li>
+
+        <li>
+            Enter Descripition
+            <input type="text" id="Descripition">
+        </li>
+        <li>
+            <input type="button" value="Generate details" onClick="details()" >
+        </li>
+    </ul>
+
+    <div class="table-container">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                    <th>Cover</th>
+                    <th>ISBN</th>
+                    <th>Descripition</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+
+<script>
+    class Authordetails{
+        constructor(data){
+            this.name=data.name;
+            this.age=data.age;
+            this.Title=data.Title;
+            this.Rating=data.Rating;
+            this.Descripition=data.Descripition;
+        }
+        
+        
+        displayRes(){
+        
+            
+            
+
+               var tbodyEl=document.querySelector("#tbody");
+               var trEl=document.createElement("tr");
+               
+
+               var TitleEl=document.createElement("td");
+               TitleEl.innerText=this.Title;
+               trEl.append(TitleEl);
+
+               var AuthorEl=document.createElement("td");
+               AuthorEl.innerText=this.Author;
+               trEl.append(AuthorEl);
+
+               var cNameEl=document.createElement("td");
+               priceEl.innerText=this.Price
+               trEl.append(priceEl);
+
+               
+               var RatingEl=document.createElement("td");
+               ReatingEl.innerText=this.Rating
+               trEl.append(RatingEl);
+
+               
+               var CoverEl=document.createElement("td");
+               bsalEl.innerText=this.Cover;
+               trEl.append(CoverEl);
+
+               
+               var ISBNEl=document.createElement("td");
+               pfEl.innerText=this.ISBN;
+               trEl.append(ISBNEl);
+
+               
+               var DescriptionEl=document.createElement("td");
+               hraEl.innerText=this.Descripition;
+               trEl.append(DescripitionEl);
+
+               tbodyEl.append(trEl);
+
+            
+        }
+    }
+
+
+
+
+    var details=()=>{
+        var data={};
+        data.Title=document.querySelector('#Title').value;
+        data.Author=document.querySelector("#Author").value;
+        data.Price=document.querySelector("#Price").value;
+        data.Rating=document.querySelector("#Rating").value;
+        data.Descripition=document.querySelector("#Description").value;
+
+        var obj1=new Authordetails(data);
+        obj1.getpf();
+       
+    }
+</script>
+</html>

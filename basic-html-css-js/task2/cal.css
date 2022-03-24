@@ -1,0 +1,38 @@
+.container{
+    border:1px solid gray;
+    padding:20px;
+}
+.legend{
+    position: absolute;
+    top:0px;
+    left:50px;
+    background-color: red;
+    border:1 px solid;
+    color:white;
+}
+
+.second{
+    margin-top:20px;
+
+}
+.legend1{
+    
+    position: absolute;
+    top:100px;
+    left:50px;
+    background-color: red;
+    border:1 px solid;
+    color:white;
+
+}
+
+.legend2{
+    
+    position: absolute;
+    top:170px;
+    left:50px;
+    background-color: red;
+    border:1 px solid;
+    color:white;
+
+}

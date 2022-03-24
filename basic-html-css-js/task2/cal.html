@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+    <div class="container">
+        <legend class="legend">Toolbar</legend>
+        <label for="" >Name</label>
+        <input type="text" id="uNum">
+        <button>Add to List</button>
+        <button>Clear display</button>
+        <button>Reset Calculater</button>
+        <div>
+            <button id="sum">Sum</button>
+            <button>Avg</button>
+            <button>Find Min</button>
+        </div>
+    </div>
+
+    <div class="container second">
+        <legend class="legend1">Console</legend>
+        <span id="opVal"></span>
+
+    </div>
+
+    <div class="container second">
+        <legend class="legend2">Number List</legend>
+
+    </div>
+
+    <script>
+    let sumEl=document.querySelector("#sum")
+        sumEl.addEventListener("click",()=>{
+            
+            let conVal =document.querySelector("#uNum").value;
+            console.log(conVal);
+            
+            
+          document.querySelector("#opVal").textContent=conVal;
+         
+
+        })
+
+    </script>
+</body>
+</html>
