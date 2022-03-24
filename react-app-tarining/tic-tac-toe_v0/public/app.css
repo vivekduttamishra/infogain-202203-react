@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-
 .app{
     background:lightyellow;
     width: 400px;
@@ -26,15 +24,7 @@
     padding:5px;
     font-weight:bold;
     width:200px
-}
 
-.Check-board{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background:green;
-    padding:5px;
-    font-weight:bold;
-    width:200px
 }
 
 .game{
@@ -58,21 +48,9 @@
     border:2px solid orange;
 }
 .cell{
-    font-family: 'Indie Flower', cursive;
-    font-size:60px;
     padding:5px;
     margin:0px;
     width:80px;
     height:80px;
     background-color:white;
 }
-
-.clock{
-    align-self: center;
-}
-
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
-  }
