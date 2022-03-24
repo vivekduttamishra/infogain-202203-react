@@ -58,3 +58,11 @@
     padding-bottom: 40px;
     
 }
+
+.book-manage-cover{
+    width:200px;
+    border:10px solid black;
+    padding:5px;
+    box-shadow: -5px -5px 5px  gray;
+    
+}

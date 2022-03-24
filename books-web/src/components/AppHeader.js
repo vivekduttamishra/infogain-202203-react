@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AppHeader=({title})=>{
+const AppHeader=({title,setScreen})=>{
     //TODO: Initialize Here
     
 
@@ -14,10 +14,10 @@ const AppHeader=({title})=>{
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Books <span className="sr-only">(current)</span></a>
+                        <a className="nav-link" href="#" onClick={()=>setScreen('book-list')}>Books <span className="sr-only">(current)</span></a>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Add Book</a>
+                        <a className="nav-link" href="#" onClick={()=>setScreen('book-add')}>Add Book</a>
                     </li>
                     <li className="nav-item active">
                         <a className="nav-link" href="#">Authors</a>

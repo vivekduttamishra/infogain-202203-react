@@ -1,11 +1,11 @@
 import React from 'react';
 
-const BookListItem=({book})=>{
+const BookListItem=({book,onBookSelect})=>{
     //TODO: Initialize Here
     
 
     return (
-        <div className="list-item">
+        <div className="list-item" onClick={()=>onBookSelect(book)}>
             
             <img src={book.cover} />
             <div className="list-info">
