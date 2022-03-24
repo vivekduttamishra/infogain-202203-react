@@ -31,3 +31,30 @@
 .list-item .author{
     font-size:1em;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.footer a, .footer a:hover{
+    color:white;
+    text-decoration:none;
+
+}
+
+.footer a:hover{
+    color:lightyellow;
+}
+
+.screen{
+    padding-left:5%;
+    padding-top:2%;
+    padding-bottom: 40px;
+    
+}

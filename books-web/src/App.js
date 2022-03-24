@@ -2,15 +2,20 @@
 
 import React from 'react';
 import BookListScreen from './screens/BookListScreen';
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
+
 
 const App = () => {
 
     return (
         <div>
-            <h1>Book's Web</h1>
-            <hr/>
-            <BookListScreen/>
-        </div>
+            <AppHeader title="Book's Web" />
+            <div className='screen'>
+                <BookListScreen/>
+            </div>
+            <AppFooter/>
+       </div>
     );
 };
 
