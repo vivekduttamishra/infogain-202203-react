@@ -69,7 +69,9 @@ class Game extends React.Component {
                 <Board cells={this.state.cells} onCellClick={this.handleCellClick} />
                 <button 
                     onClick={this.handleReset}
-                className="reset-button">Reset</button>
+                className="reset-button">Play-Again</button>
+               
+               
             </div>
         )
     };
