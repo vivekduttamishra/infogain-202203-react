@@ -51,25 +51,63 @@ class Game extends React.Component {
         //update the state with new result
         this.setState({...result});
 
-
+        
+         
 
     }
 
     handleReset=()=>{
         let state= this.getInitialState();
         this.setState(state);
+       
     }
+
+   
 
 
 
     render = () => {
+      
+
+const disableButton = () =>{
+  buttonRef.current.disabled = true; // this disables the button
+ }
+       
         return (
             <div className="game">
-                <Status move={this.state.move} winner={this.state.winner} movesLeft={this.state.movesLeft} />
-                <Board cells={this.state.cells} onCellClick={this.handleCellClick} />
-                <button 
-                    onClick={this.handleReset}
-                className="reset-button">Reset</button>
+              
+              <button className="play-button" onClick={this.handleEditClick.bind(this)}>Play</button>
+
+{/* <form>
+
+    <input disabled = {!this.state.disable} type="text"></input>
+
+</form> */}
+
+ <Status move={this.state.move} winner={this.state.winner} movesLeft={this.state.movesLeft} />
+
+ <div disabled = {!this.state.disable}>
+
+ <Board cells={this.state.cells} onCellClick={this.handleCellClick} />
+
+ </div>
+
+ 
+
+
+
+ {this.state.over ?
+
+     <button
+
+         onClick={this.handleReset}
+
+         className="reset-button">Play Again</button> : null
+
+ }
+
+
+            
             </div>
         )
     };

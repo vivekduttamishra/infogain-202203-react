@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './components/Header';
 import Game from './components/Game';
 import Clock from './components/Clock';
+import Score from './components/Score';
+import Timer from './components/Timer';
 const App =  ()=>{
 
     return (
@@ -9,6 +11,8 @@ const App =  ()=>{
             <Header/>
             <Clock/>
             <Game/>
+            <Score/>
+            <Timer/>
         </div>
     );
 };
