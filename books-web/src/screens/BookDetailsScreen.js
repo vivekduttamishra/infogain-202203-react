@@ -1,15 +1,24 @@
 import React from 'react';
 import BookDetails from '../components/BookDetails'
+import withDate from '../utils/withDate';
+import {useParams } from 'react-router-dom';
 
-const BookDetailsScreen=({selectedBook,onBack})=>{
+const BookDetailsScreen=(props)=>{
+
+    
+
+    console.log('props in BookDetailsScreen',props);
+    const params = useParams()
+    console.log('match',params);
+    
+    
+
     //TODO: Initialize Here
     
 
     return (
         <div className='BookDetailsScreen'>
-            <h1>Book Details</h1>
-            <button onClick={onBack}>Back</button>
-            <BookDetails book={selectedBook} />
+            <h1>Book Details for {params.isbn}</h1>           
         </div>
     );
 }
