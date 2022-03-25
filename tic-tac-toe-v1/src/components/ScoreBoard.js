@@ -1,6 +1,17 @@
 import React from 'react';
+import Status from './Status';
+import App from '../App'
 
-const Score=({x,o,draw,totalGames})=>{ {
+const Score=()=>{ {
+    // if (Status.winner === 'X') {
+    //     App.properties.xWins += 1;
+    // } else if (Status.winner === 'O') {
+    //     App.properties.oWins += 1;
+    // } else {
+    //     App.properties.draw += 1;
+    // }
+
+    //App.properties.total = App.properties.xWins + App.properties.oWins + App.properties.draw;
 
 
         return (

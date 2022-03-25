@@ -8,7 +8,7 @@ const Status = ({ move, winner, movesLeft }) => {
     else if (movesLeft === 0 && winner === "draw") {
         message = `Stalemate`;
     }
-    else
+    else 
         message = `Move: ${move} (${movesLeft}/9 moves Left)`;
 
     return (
