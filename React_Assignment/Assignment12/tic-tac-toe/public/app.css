@@ -28,17 +28,13 @@
     width:200px
 
 }
-.play-button{
-    background:rgb(86, 233, 67);
+.start-button{
+    background:rgb(122, 214, 85);
     padding:5px;
     font-weight:bold;
     width:200px
 
 }
-.border{
-    border: 2px solid black;
-}
-
 .game{
     background-color:blanchedalmond;
     min-height: 300px;

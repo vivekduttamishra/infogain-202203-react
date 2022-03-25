@@ -1,6 +1,7 @@
 import React from 'react';
 import Status from './Status';
 import Board from './Board';
+import If from './If';
 import {checkGame} from '../services/TicTacToe';
 
 class Game extends React.Component {
@@ -21,7 +22,7 @@ class Game extends React.Component {
         ];
         return {
             cells,
-            move: 'O',  //this is current move.
+            move: null, //no one's move yet
             ...checkGame(cells)
         };
 
@@ -30,11 +31,8 @@ class Game extends React.Component {
 
     handleCellClick = (id) => {
       
-        if(this.state.over || this.state.cells[id])
+        if(this.state.move===null || this.state.over || this.state.cells[id])
             return; //don't play if game is over or current cell is occupied
-
-        
-
 
         //get a duplicate copy of all cell values;
         let cells = [...this.state.cells];
@@ -48,6 +46,9 @@ class Game extends React.Component {
         //check the game status now.
 
         let result= checkGame(cells);
+        if(result.over)
+            this.setState({move:null});
+
         //update the state with new result
         this.setState({...result});
 
@@ -60,6 +61,11 @@ class Game extends React.Component {
         this.setState(state);
     }
 
+    handleStart=()=>{
+        let state= this.getInitialState();
+        this.setState(state);
+        this.setState({move:"O"});
+    }
 
 
     render = () => {
@@ -67,10 +73,14 @@ class Game extends React.Component {
             <div className="game">
                 <Status move={this.state.move} winner={this.state.winner} movesLeft={this.state.movesLeft} />
                 <Board cells={this.state.cells} onCellClick={this.handleCellClick} />
-                <button 
-                    onClick={this.handleReset}
-                className="reset-button">Play-Again</button>
-               
+                
+
+                <If condition={this.state.move===null}>
+                    <button 
+                            onClick={this.handleStart}
+                            className="start-button">Start
+                    </button>
+                </If>
                
             </div>
         )
