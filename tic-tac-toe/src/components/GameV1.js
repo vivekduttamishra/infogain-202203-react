@@ -74,14 +74,14 @@ class Game extends React.Component {
                 <Status move={this.state.move} winner={this.state.winner} movesLeft={this.state.movesLeft} />
                 <Board cells={this.state.cells} onCellClick={this.handleCellClick} />
                 
-
-                <If condition={this.state.move===null}>
-                    <button 
-                            onClick={this.handleStart}
-                            className="start-button">Start
+                { this.state.move===null
+                 ?  <button 
+                         onClick={this.handleStart}
+                        className="start-button">Start
                     </button>
-                </If>
-               
+
+                : null
+                }
             </div>
         )
     };

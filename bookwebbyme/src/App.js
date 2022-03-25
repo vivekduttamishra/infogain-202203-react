@@ -1,15 +1,20 @@
+import React from 'react';
+import BookListScreen from './screens/BookListScreen';
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
 
-import './App.css';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-function App() {
-  return (
-    <div className="App">
-  
-    <Header/>
-    <Footer/>
-    </div>
-  );
-}
+
+const App = () => {
+
+    return (
+        <div>
+            <AppHeader title="Book's Web" />
+            <div className='screen'>
+                <BookListScreen/>
+            </div>
+            <AppFooter/>
+       </div>
+    );
+};
 
 export default App;
