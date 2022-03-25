@@ -23,11 +23,7 @@ class Game extends React.Component {
         
         return {
             cells,
-            move: 'O', //this is current move.
-            Owin: 0,
-            Xwin: 0,
-            draw: 0,
-            disable:false,
+            move: null, //this is current move.
             ...checkGame(cells)
         };
     }
@@ -35,7 +31,7 @@ class Game extends React.Component {
 
     handleCellClick = (id) => {
 
-        if (this.state.over || this.state.cells[id])
+        if(this.state.move===null || this.state.over || this.state.cells[id])
             return; //don't play if game is over or current cell is occupied
 
         //get a duplicate copy of all cell values;
@@ -50,6 +46,10 @@ class Game extends React.Component {
         //check the game status now.
 
         let result = checkGame(cells);
+
+        if(result.over)
+        this.setState({move:null});
+
         //update the state with new result
         this.setState({ ...result });
 
@@ -60,25 +60,13 @@ class Game extends React.Component {
         this.setState(state);
     }
 
-    handleWinClick = () => {
-        var win = this.state.winner;
-        if(win == 'O'){
-            var Owin1 = this.state.Owin;
-            var Owin = Owin1 + 1
-            console.log("Owin Add", Owin)
-            this.setState({Owin});
-        } if (win == 'X') {
-            var Xwin1 = this.state.Xwin;
-            var Xwin = Xwin1 + 1
-            console.log("Xwin Add", Xwin)
-            this.setState({Xwin});
-        } if (win === null) {
-            var draw1 = this.state.draw;
-            var draw = draw1 + 1;
-            console.log("Draw Add", draw)
-            this.setState({draw});
-        }
+    handleStart=()=>{
+        let state= this.getInitialState();
+        this.setState(state);
+        this.setState({move:"O"});
     }
+
+    
 
 
     render = () => {
@@ -89,13 +77,16 @@ class Game extends React.Component {
                
                 <Board cells={this.state.cells} onCellClick={this.handleCellClick} />
                
-                {this.state.over ?
-                    <button
-                        onClick={this.handleReset}
-                        className="reset-button">Play Again</button> : null
+                { this.state.move===null
+                 ?  <button 
+                         onClick={this.handleStart}
+                        className="start-button">Start
+                    </button>
+
+                : null
                 }
-                <button className="Check-board" onClick={this.handleWinClick}>Show Match Stats</button>
-                <WinnerBoard Owin={this.state.Owin} Xwin={this.state.Xwin} draw={this.state.draw}/>
+                {/* <button className="Check-board" onClick={this.handleWinClick}>Show Match Stats</button>
+                <WinnerBoard Owin={this.state.Owin} Xwin={this.state.Xwin} draw={this.state.draw}/> */}
             </div>
         )
     };

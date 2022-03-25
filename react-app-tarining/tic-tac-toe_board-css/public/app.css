@@ -46,6 +46,14 @@
     padding-bottom:10px;
 }
 
+.start-button{
+    background:rgb(122, 214, 85);
+    padding:5px;
+    font-weight:bold;
+    width:200px
+
+}
+
 .status{
     font-size: 1em;
 }
@@ -55,7 +63,12 @@
     height:240px;
     margin:10px;
     padding:0px;
-    border:2px solid orange;
+    /* border:2px solid orange; */
+}
+
+.board-name{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .cell{
     font-family: 'Indie Flower', cursive;
@@ -65,6 +78,11 @@
     width:80px;
     height:80px;
     background-color:white;
+    /* border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none; */
+    cursor: pointer;
 }
 
 .clock{
