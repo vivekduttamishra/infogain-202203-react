@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hurricane&display=swap');
 
 .app{
     background:lightyellow;
@@ -57,9 +57,9 @@
 }
 
 .cell{
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Hurricane', cursive;
     border: 1px solid black;
-    font-size: 25px;
+    font-size: 35px;
     padding: 5px !important;
     margin: 0px !important;
     width: 78px !important;
