@@ -5,6 +5,8 @@ import Clock from './components/Clock';
 import ScoreBoard from './components/ScoreBoard';
 
 const App =  ()=>{
+
+    
     
     return (
         <div className="app">
