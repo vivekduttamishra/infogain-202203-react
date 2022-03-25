@@ -7,7 +7,10 @@ const Cell=({id, value, onCellClick})=>{
     value = value || '-';  //if props.value === falsy use '-' 
 
     let style={
-        color: value==='-' ? "transparent" : null
+        color: value==='-' ? "transparent" : null,
+    
+        border:" true 5px solid blue"
+        
     };
 
 

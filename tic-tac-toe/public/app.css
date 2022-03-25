@@ -40,6 +40,7 @@
 
 .status{
     font-size: 1em;
+    color:green;
 }
 
 .board{
@@ -47,7 +48,7 @@
     height:240px;
     margin:10px;
     padding:0px;
-    border:2px solid orange;
+    border:none;
 }
 .cell{
     font-family: 'Indie Flower', cursive;
@@ -82,7 +83,7 @@ table,th,td {
     background-color: white;
 }
 
-.play-button{
+.start-button{
     background:rgb(233, 67, 67);
     padding:5px;
     font-weight:bold;
