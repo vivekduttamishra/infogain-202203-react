@@ -68,7 +68,9 @@ class Game extends React.Component {
     }
 
 
+  
     render = () => {
+      
         return (
             <div className="game">
                 <Status move={this.state.move} winner={this.state.winner} movesLeft={this.state.movesLeft} />
@@ -81,6 +83,9 @@ class Game extends React.Component {
                             className="start-button">Start
                     </button>
                 </If>
+
+                
+                
                
             </div>
         )

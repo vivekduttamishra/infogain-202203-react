@@ -1,5 +1,5 @@
 export const checkGame=(cells)=>{
-
+// important business logic written in services/checkGame component
     //check if game is over
     let movesLeft=cells.filter(cell=>cell===null).length;
 
@@ -37,6 +37,7 @@ export const checkGame=(cells)=>{
         if(cells[a]!==null && cells[a]===cells[b] && cells[b]===cells[c])
         {
             result.winningCombo=winningCombo;
+           
             result.winner=cells[a]; //or cells[b] or cells[c]
             result.over=true;
             return result;
