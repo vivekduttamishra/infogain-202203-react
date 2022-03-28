@@ -1,26 +1,42 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import BookDetails from '../components/BookDetails'
 import withDate from '../utils/withDate';
-import {useParams } from 'react-router-dom';
+import {useParams, Navigate } from 'react-router-dom';
+import Loader from '../components/Loader';
+
+import bookService from '../services/BookService';
+
 
 const BookDetailsScreen=(props)=>{
 
+    const [book,setBook] = useState(null);
     
-
-    console.log('props in BookDetailsScreen',props);
     const params = useParams()
-    console.log('match',params);
-    
     
 
-    //TODO: Initialize Here
+    useEffect(()=>{
+
+        const loadBook=async()=>{
+            let b = await bookService.getBookByIsbn(params.isbn);
+
+            setBook(b);
+        }
+
+        loadBook();
+    },[])
+
+  
+    if(book===null) //show loading
+        return <Loader loadingText={`searching for isbn ${params.isbn}`} />
+    
+    if(book===undefined){
+        return <Navigate to={`/notfound/Invalid or Missing Isbn/${params.isbn}`} />
+    }
     
 
-    return (
-        <div className='BookDetailsScreen'>
-            <h1>Book Details for {params.isbn}</h1>           
-        </div>
-    );
+    return <BookDetails book={book} />         
+       
+    
 }
 
 export default BookDetailsScreen;

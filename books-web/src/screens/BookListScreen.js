@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react';
 import BookListItem from '../components/BookListItem';
 import withTitle from '../utils/withTitle';
 import withDate from '../utils/withDate';
-import bookService from '../service/BookService';
+import bookService from '../services/BookService';
+import Loader from '../components/Loader';
 
 
 
@@ -19,15 +20,14 @@ const BookListScreen=({onBookSelect,now})=>{
    },[]);
     
 
-
     return (
-        <div className='BookListScreen'>
+        <Loader loadingText="loading books" condition={books.length===0} >
            
-            <div className='book-list'>
+            <div className='row'>
                 {books.map(book=><BookListItem onBookSelect={onBookSelect} key={book.isbn} book={book}/>)}
             </div>
             
-        </div>
+        </Loader>
     );
 }
 

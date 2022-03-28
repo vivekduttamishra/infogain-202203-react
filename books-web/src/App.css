@@ -72,3 +72,19 @@ a.list-item{
     box-shadow: -5px -5px 5px  gray;
     
 }
+
+.loading-image{
+    height:150px;
+}
+
+.grid-image{
+    height:220px;
+    margin:20px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.book-list-title{
+    font-size:1em;
+    color:gray;
+    Text-align:center;
+}
