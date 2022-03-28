@@ -88,3 +88,16 @@ a.list-item{
     color:gray;
     Text-align:center;
 }
+
+.book-editor{
+    width:80%;
+    
+}
+
+.btn{
+    margin-top:5px;
+}
+
+.book-cover-preview{
+    width:100%;
+}

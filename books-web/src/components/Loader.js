@@ -1,11 +1,18 @@
 import React from 'react';
 
-const Loader=({loadingText,image='/images/loading.gif',condition=true, children})=>{
+const Loader=({loadingText,size, image='/images/loading.gif',condition=true, children})=>{
     //TODO: Initialize Here
 
+    let style={};
+    if(size){
+        style={
+            width:`${size}%`,
+            height:`${size}%`
+        }
+    };
 
     if(condition)
-            return <img src={image} title={loadingText} alt={loadingText} className='loading-image' />
+            return <img style={style} src={image} title={loadingText} alt={loadingText} className='loading-image' />
     else if(children)
         return children;
     else

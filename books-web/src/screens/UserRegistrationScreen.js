@@ -1,13 +1,34 @@
 import React from 'react';
+import useForm from '../utils/useForm';
+import InputField from '../components/InputField';
 
 const UserRegistrationScreen=({})=>{
     //TODO: Initialize Here
+
+    const [user, updateUser, registerUser] = useForm({
+        name:'',
+        email:'',
+        password:''
+    }, user=>{
+        console.log('user',user);
+        
+    });
+
     
 
+
+
     return (
-        <div className='UserRegistrationScreen'>
+        <>
             <h1>UserRegistrationScreen</h1>
-        </div>
+
+            <form onSubmit={registerUser}>
+                <InputField name="name" value={user.name} onChange={updateUser} />
+                <InputField name="email" value={user.name} onChange={updateUser} />
+                <InputField name="password" type="password" value={user.name} onChange={updateUser} />
+                <button type="submit" className="btn btn-primary">Register</button>
+            </form>
+        </>
     );
 }
 
