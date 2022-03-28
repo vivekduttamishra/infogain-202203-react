@@ -3,6 +3,7 @@ import BookListItem from '../components/BookListItem';
 import withTitle from '../utils/withTitle';
 import withDate from '../utils/withDate';
 import bookService from '../service/BookService';
+import Clock from '../components/Clock'
 
 
 
@@ -40,6 +41,7 @@ const BookListScreen = ({ onBookSelect, now }) => {
 
                     <div className='book-list'>
                         <h2 className="book-list">Our Recommendations</h2>
+                        <Clock />
                         {books.map(book => <BookListItem onBookSelect={onBookSelect} key={book.isbn} book={book} />)}
                     </div>
             }
