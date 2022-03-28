@@ -2,18 +2,18 @@ import React from 'react';
 
 
 
-const Cell=(props)=>{
+const Cell=({id, value, onCellClick})=>{
 
-    let value = props.value || '-';  //if props.value === falsy use '-' 
+    value = value || '-';  //if props.value === falsy use '-' 
 
     let style={
-        color: props.value ? "black" : "transparent"
+        color: value==='-' ? "transparent" : null
     };
 
 
     return <button 
         style={style}
-        onClick={ ()=> props.onCellClick(props.id)}
+        onClick={ ()=> onCellClick(id)}
         className="cell">{value}</button>;
 }
 

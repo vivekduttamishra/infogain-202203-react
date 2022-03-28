@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .app{
     background:lightyellow;
     width: 400px;
@@ -6,6 +8,15 @@
     flex-direction:column;
  
  }
+ table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  
+    
+  }
+  table ,th{
+      background-color: green;
+  }
 
 .header{
     background:rgb(0, 140, 255);
@@ -13,10 +24,39 @@
     margin-bottom: 10px;
     
 }
+.scoreboard h3{
+    color: blue;
+   
+        
+}
+.timer h4{
+    color:blue;
+}
+.scoreboard {
+    width: 250px;
+    display:flex;
+    align-items:stretch;
+    flex-direction:column;
+    margin-left: 240px;
+    margin-top: -209px;
+    text-align: center;
+}
+.timer{
+    width: 250px;
+    display:flex;
+    align-items:stretch;
+    flex-direction:column;
+    margin-left: 540px;
+    margin-top: -156px;
+    text-align: center;
 
+}
 .header h1{
     font-size:2em;
     text-shadow: -2px -2px 2px gray;
+}
+.table{
+    background-color: white;
 }
 
 .reset-button{
@@ -26,7 +66,13 @@
     width:200px
 
 }
+.start-button{
+    background:rgb(122, 214, 85);
+    padding:5px;
+    font-weight:bold;
+    width:200px
 
+}
 .game{
     background-color:blanchedalmond;
     min-height: 300px;
@@ -48,9 +94,15 @@
     border:2px solid orange;
 }
 .cell{
+    font-family: 'Indie Flower', cursive;
+    font-size:60px;
     padding:5px;
     margin:0px;
     width:80px;
     height:80px;
     background-color:white;
+}
+
+.clock{
+    align-self: center;
 }
