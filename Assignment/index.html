@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+   <style>
+       div[class^='col-'] {
+           float:left;
+       }
+       .pgbx{
+           border:1px solid #000;
+           border-radius:4px 4px;
+           margin-top:60px;
+           padding:10px 10px;
+       }
+       .aspect {
+           position: relative;
+           overflow: hidden;
+           height: 250px;
+           width: 100%;
+       }
+       .pdb20{
+           padding-bottom:20px;
+       }
+       .pdb{
+           padding:15px 16px;
+           font-size:19px;
+           border-bottom:2px solid #4cff00;
+       }
+   </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row col-md-12 pdb">
+            <div class="col-md-5">
+                <a href="#">
+                    Book's Web
+                </a>
+            </div>
+            <div class="col-md-5">
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a href="#"   id="homedt">
+                            Home
+                        </a>
+                    </li>
+                    <li> &ensp;</li>
+                    <li> &ensp;</li>
+                    <li>
+                        <a href="#"   id="addbokdt">Add book</a>
+                    </li>
+                </ul>
+                <input type="text" placeholder="Search.." name="search" id="search" onclick="search">
+                <button type="submit"><i class="bi bi-search"></i></button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row col-md-12">
+            <div class="col-md-7 " >
+                <table class="table" id="tbldt" border="1" style="margin-top:60px;">
+                    <thead>
+                        <tr>
+                            <td>
+                                Cover
+                            </td>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                Author
+                            </td>
+                            <td>
+                                Action
+                            </td>
+                            <td>
+                                Delete
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div class="row col-md-6 pgbx" id="addbook" style="display:none">
+            <div class="row col-md-12">
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-5">
+                        Title
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="title" />
+                    </div>
+                </div>
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-5">
+                        Author
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="author" />
+                    </div>
+                </div>
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-5">
+                        Price
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="price" />
+                    </div>
+                </div>
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-5">
+                        Rating
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="rating" />
+                    </div>
+                </div>
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-5">
+                        Cover
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="cover" />
+                    </div>
+                </div>
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-5">
+                        ISBN
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="isbn" />
+                    </div>
+                </div>
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-5">
+                        Description
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="description" />
+                    </div>
+                </div>
+                <div class="row col-md-12 pdb20">
+                    <div class="col-md-8">
+
+                    </div>
+                    <div class="  col-md-4  " style="text-align:right">
+                        <button type="button" class="btn btn-primary" id="savebtn">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row col-md-12">
+            <div class=" row col-md-8 pgbx" id="viewbook" style="display:none">
+
+            </div>
+        </div>
+
+    </div>
+
+    <script  src="dist/main.js"></script>
+    <script>
+
+ function viewdata(id) {
+    document.getElementById("viewbook").style.display = 'block';
+    document.getElementById("tbldt").style.display = 'none';
+    document.getElementById("addbook").style.display = 'none';
+    document.getElementById("search").style.display="none"
+    var item = search(id);
+    if (item) {
+        var html = ' <div class="col-md-4"> ' +
+            ' <div class="aspect">  <img src="' + item.cover + '"  /> </div>' +
+            '</div>' +
+            '<div class="col-md-8">' +
+            '<h2><a>' + item.title + '</a></h2> <br />' +
+            ' <span> ' + item.author + ' </span><br />' +
+            '<span>Price:' + item.price + '</span><br />' +
+            '<span>Rating:' + item.rating + '</span><br />' +
+            '<b>Description:</b><br />' +
+            '<span>' + item.description + '</span>' +
+            '</div>';
+        document.getElementById("viewbook").innerHTML = html;
+    }
+    console.log(item)
+}
+function search(id)
+{
+   var  books = JSON.parse(localStorage.getItem("books"));
+
+    var bk= books.find(a=>a.isbn ===id);
+
+    return bk;
+}
+    </script>
+</body>
+</html> 
