@@ -15,7 +15,7 @@ const BookDetails = ({ book }) => {
                     <li>Rating: {book.rating} / 5</li>
                 </ul>
                 <h5>Description</h5>
-                <p className="description">{book.description}</p>
+                <p className="description text-justify">{book.description}</p>
             </div>
             <div className="col col-4">
                 <img src={book.cover} alt={book.title} title={book.title} className="book-manage-cover" />

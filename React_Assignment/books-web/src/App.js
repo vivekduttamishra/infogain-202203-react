@@ -1,36 +1,50 @@
 
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+import Home from './components/Home'
 import BookManageScreen from './screens/BookManageScreen';
 import BookListScreen from './screens/BookListScreen';
 import BookDetailsScreen from './screens/BookDetailsScreen';
 import BookAddScreen from './screens/BookAddScreen';
+import UserLoginScreen from './screens/UserLoginScreen';
+import UserRegistrationScreen from './screens/UserRegistrationScreen';
+import NotFoundScreen from './screens/NotFoundScreen';
+import books from './data/books';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 
 
 const App = () => {
 
-    const [screen,setScreen] = useState('book-list');
-    const [selectedBook,selectBook] = useState(null);
-
-    const handleBookSelect=book=>{
-        selectBook(book);
-        setScreen('book-details');
-    }
-
-    
-
     return (
         <div>
-            <AppHeader title="Book's Web" setScreen={setScreen} />
-            <div className='screen'>
-               {screen==='book-list' && <BookListScreen onBookSelect={handleBookSelect}/> }
-               {screen==='book-details' && <BookDetailsScreen selectedBook={selectedBook} onBack={()=>setScreen('book-list')}  /> }
-               {screen==='book-add' && <BookAddScreen/>}
-            </div>
-            <AppFooter/>
-       </div>
+
+            <Router>
+                <AppHeader title="Book's Web" />
+                <div className='screen'>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/book/list" element={<BookListScreen />} />
+                        <Route path="/book/add" element={<BookAddScreen />} />
+                        <Route path="/book/info/:isbn" element={<BookDetailsScreen data={books}/>} />
+                        {/* <Route path="/book/info/:isbn" element={<BookManageScreen />} /> */}
+                        <Route path="/user/login" element={<UserLoginScreen />} />
+                        <Route path="/user/register" element={<UserRegistrationScreen />} />
+
+                        {/* <Route path="/" element={<Navigate to="/book/list" />} /> */}
+
+                        <Route path="*" element={<NotFoundScreen />} />
+                        <Route path="/book/info/:isbn" element={<NotFoundScreen />} />
+                        
+                    </Routes>
+                </div>
+                <AppFooter />
+            </Router>
+
+        </div>
     );
 };
 

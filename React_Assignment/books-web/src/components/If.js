@@ -1,9 +1,9 @@
 import React from 'react';
 
-const If=(props)=>{
-    
-    if(props.condition) 
-        return props.children;
+const If=({condition, children})=>{
+   
+    if(condition) 
+        return children;
     else
         return null;
 }

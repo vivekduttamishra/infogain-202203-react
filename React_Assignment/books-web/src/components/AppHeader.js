@@ -1,12 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-const AppHeader=({title,setScreen})=>{
+const AppHeader=({title})=>{
     //TODO: Initialize Here
     
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="#">{title}</a>
+            <Link className="navbar-brand" to="/">{title}</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -14,13 +15,13 @@ const AppHeader=({title,setScreen})=>{
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#" onClick={()=>setScreen('book-list')}>Books <span className="sr-only">(current)</span></a>
+                        <Link className="nav-link" to="/book/list" >Books <span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link" href="#" onClick={()=>setScreen('book-add')}>Add Book</a>
+                        <Link className="nav-link" to="/book/add" >Add Book</Link>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Authors</a>
+                        <Link className="nav-link" to="/author/add">Authors</Link>
                     </li>
                     
                     
@@ -31,14 +32,14 @@ const AppHeader=({title,setScreen})=>{
                 </form>
                 <ul className="navbar-nav">
                 <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Members
-                        </a>
+                        </Link>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="#">Login</a>
-                            <a className="dropdown-item" href="#">Register</a>
+                            <Link className="dropdown-item" to="/user/login">Login</Link>
+                            <Link className="dropdown-item" to="/user/register">Register</Link>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="#">Logout</a>
+                            <Link className="dropdown-item" to="#">Logout</Link>
                         </div>
                     </li>
                 </ul>
