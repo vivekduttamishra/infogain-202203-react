@@ -62,7 +62,6 @@
     height:240px;
     margin:10px;
     padding:0px;
-    border:2px solid orange;
 }
 .cell{
     font-family: 'Indie Flower', cursive;
@@ -72,6 +71,22 @@
     width:80px;
     height:80px;
     background-color:white;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n+1){
+    border-left: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
 }
 
 .clock{
