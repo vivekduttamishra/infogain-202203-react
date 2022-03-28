@@ -7,9 +7,9 @@
 
 .list-item{
     font-size:1.2em;
-    padding-bottom:5px;
+    padding-bottom:15px;
     border-bottom: 1px solid gray;
-    padding-top: 15px;
+    padding-top: 0px;
     display:flex;
 }
 
