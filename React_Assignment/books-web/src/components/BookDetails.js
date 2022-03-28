@@ -5,6 +5,10 @@ const BookDetails = ({ book }) => {
 
     return (
         <div className="row">
+       
+            <div className="col col-4">
+                <img src={book.cover} alt={book.title} title={book.title} className="book-manage-cover" />
+            </div>
             <div className="col col-8">
                 <h3>{book.title}</h3>
                 <h4> by {book.author}</h4>   
@@ -16,9 +20,6 @@ const BookDetails = ({ book }) => {
                 </ul>
                 <h5>Description</h5>
                 <p className="description text-justify">{book.description}</p>
-            </div>
-            <div className="col col-4">
-                <img src={book.cover} alt={book.title} title={book.title} className="book-manage-cover" />
             </div>
         </div>
     )
