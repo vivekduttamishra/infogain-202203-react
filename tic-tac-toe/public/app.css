@@ -117,3 +117,9 @@ table,th,td {
     margin-left: 70%;
     margin-right: 40%;
 }
+
+.cell:active, .cell:hover, .cell.cellwinner {
+    cursor: pointer;
+    color: yellowgreen;
+    background: rgb(236, 186, 236);
+}

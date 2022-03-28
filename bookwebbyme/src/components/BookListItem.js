@@ -1,19 +1,18 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const BookListItem=({book,onBookSelect})=>{
     //TODO: Initialize Here
     
 
     return (
-        <div className="list-item" onClick={()=>onBookSelect(book)}>
-            
-            <img src={book.cover} alt="Book-cover"/>
+        <Link className="list-item" to={`/book/info/${book.isbn}`} >
+            <img src={book.cover} />
             <div className="list-info">
                 <p className="title">{book.title}</p>
                 <p className="author">{book.author}</p>
             </div>
-
-        </div>
+        </Link>
     );
 }
 

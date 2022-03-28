@@ -7,6 +7,7 @@ class Clock extends React.Component {
         date:new Date()
     };
 
+    //jevha first time component mount hoil teva clock after evry 1 sec call hoil
     componentDidMount() {
         this.id=setInterval(() =>{
 

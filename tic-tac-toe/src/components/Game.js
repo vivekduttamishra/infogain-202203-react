@@ -28,7 +28,7 @@ class Game extends React.Component {
 
 
     }
-
+   
     handleCellClick = (id) => {
       
         if(this.state.move===null || this.state.over || this.state.cells[id])

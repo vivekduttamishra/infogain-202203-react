@@ -16,7 +16,7 @@ const Cell=({id, value, onCellClick})=>{
 //cell means nthing but a button we have used as event is of clicking in a game
     return <button 
         style={style}
-        onClick={ ()=> onCellClick(id)}
+        onClick={ ()=> onCellClick(id)}      //button click kelyvr onCellClick fun call hoil and id will have value
         className="cell">{value}</button>;
 }
 

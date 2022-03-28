@@ -37,7 +37,7 @@ export const checkGame=(cells)=>{
         if(cells[a]!==null && cells[a]===cells[b] && cells[b]===cells[c])
         {
             result.winningCombo=winningCombo;
-           
+           winningCombo.className="cellwinner";
             result.winner=cells[a]; //or cells[b] or cells[c]
             result.over=true;
             return result;
@@ -48,4 +48,5 @@ export const checkGame=(cells)=>{
 
 
     return result;
+    
 }

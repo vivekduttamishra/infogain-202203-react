@@ -1,4 +1,5 @@
 import React from 'react';
+import withTitle from '../utils/withTitle';
 
 const BookAddScreen=({})=>{
     //TODO: Initialize Here
@@ -6,9 +7,9 @@ const BookAddScreen=({})=>{
 
     return (
         <div className='BookAddScreen'>
-            <h1>Book Add Screen</h1>
+            
         </div>
     );
 }
 
-export default BookAddScreen; 
+export default withTitle( BookAddScreen, "Add New Book");
