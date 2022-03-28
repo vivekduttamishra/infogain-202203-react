@@ -2,14 +2,14 @@ import React from 'react';
 
 
 
-const Cell=({id, value, onCellClick})=>{
+const Cell=({id, value, onCellClick,winningCombo})=>{
 
     value = value || '-';  //if props.value === falsy use '-' 
   //direct cant give syle so giving style using style as obj in jsx
     let style={
         color: value==='-' ? "transparent" : null,
-    
-
+        backgroundColor:winningCombo?.includes(id)?"lightgreen":"transparent" //Game to board borad to cell then we chnge style
+        
         
     };
 

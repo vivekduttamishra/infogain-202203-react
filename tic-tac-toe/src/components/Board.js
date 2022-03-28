@@ -10,7 +10,7 @@ const Board=(props)=>{
                {
                 
                 props.cells.map((cell,index)=>
-                ( <Cell value={cell} key={index} id={index} onCellClick={props.onCellClick}/>)
+                ( <Cell value={cell} key={index} id={index} onCellClick={props.onCellClick} winningCombo={props.winningCombo}/>)
                 )
                 }
 
