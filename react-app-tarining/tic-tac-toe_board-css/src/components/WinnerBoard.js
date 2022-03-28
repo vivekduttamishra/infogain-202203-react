@@ -3,7 +3,7 @@ import React from 'react'
 function WinnerBoard(props) {
     return (
         <div>
-            <button className="Check-board" onClick={props.winClick}>Show Match Stats</button>
+            {/* <button className="Check-board" onClick={props.winClick}>Show Match Stats</button> */}
             <table>
                 <thead>
                     <tr>

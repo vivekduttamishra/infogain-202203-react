@@ -43,9 +43,15 @@ export const checkGame=(cells)=>{
                 return result;
             }
         }
-
-
-
-
         return result;
 }
+
+export const checkLine = (x, y, z, letter) => {
+    const cells = [x, y, z].map(num => document.getElementById("cell" + num));
+    if (cells.every(cell => cell.textContent === letter)) {
+      for (const cell of cells) {
+        cell.style.color = 'red';
+      }
+      return true;
+    }
+  }

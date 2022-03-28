@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const Cell = ({ id, value, onCellClick, winner }) => {
+const Cell = ({ id, value, onCellClick, move, winner }) => {
 
     value = value || '-';  //if props.value === falsy use '-' 
 
@@ -10,15 +10,14 @@ const Cell = ({ id, value, onCellClick, winner }) => {
         color: value === '-' ? "transparent" : null
     
     };
-
-    
-
-   
+    if (move === null) {
+        style.cursor = "not-allowed"
+    }
 
 
     return (
         <>
-            <button
+            <button disabled={move === null}
                 style={style}
                 onClick={() => onCellClick(id)}
                 className="cell">{value}</button>

@@ -78,11 +78,24 @@
     width:80px;
     height:80px;
     background-color:white;
-    /* border-top: none;
+}
+.cell:first-child, 
+.cell:nth-child(2), 
+.cell:nth-child(3)
+{ border-top:none; }
+
+.cell:nth-child(3n + 1){
     border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
     border-right: none;
-    border-bottom: none; */
-    cursor: pointer;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7){
+    border-bottom: none;
 }
 
 .clock{

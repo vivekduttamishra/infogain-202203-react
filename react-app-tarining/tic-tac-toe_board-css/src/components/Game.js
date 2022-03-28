@@ -2,7 +2,7 @@ import React from 'react';
 import Status from './Status';
 import Board from './Board';
 import WinnerBoard from './WinnerBoard';
-import { checkGame } from '../services/TicTacToe';
+import { checkGame, checkLine } from '../services/TicTacToe';
 
 class Game extends React.Component {
 
@@ -24,7 +24,8 @@ class Game extends React.Component {
         return {
             cells,
             move: null, //this is current move.
-            ...checkGame(cells)
+            ...checkGame(cells),
+            // ...checkLine(cells)
         };
     }
 
@@ -66,16 +67,13 @@ class Game extends React.Component {
         this.setState({move:"O"});
     }
 
-    
-
-
     render = () => {
         return (
             <div className="game">
                 
                 <Status move={this.state.move} winner={this.state.winner} movesLeft={this.state.movesLeft} />
                
-                <Board cells={this.state.cells} onCellClick={this.handleCellClick} winner={this.state.winner}/>
+                <Board cells={this.state.cells} onCellClick={this.handleCellClick} move={this.state.move} winner={this.state.winner}/>
                
                 { this.state.move===null
                  ?  <button 
