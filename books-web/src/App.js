@@ -17,6 +17,14 @@ import AppFooter from './components/AppFooter';
 
 
 const App = () => {
+
+
+
+
+
+
+
+
     return (
         <div>
 
@@ -29,7 +37,7 @@ const App = () => {
                         <Route path="/book/info/:isbn" element={<BookDetailsScreen />} />
                         <Route path="/user/login" element={<UserLoginScreen />} />
                         <Route path="/user/register" element={<UserRegistrationScreen />} />
-
+                        <Route path="/notfound/:error/:info" element={<NotFoundScreen />} />
                         <Route path="/" element={<Navigate to="/book/list" />} />
 
                         <Route path="*" element={<NotFoundScreen />} />

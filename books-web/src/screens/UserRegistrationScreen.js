@@ -1,31 +1,37 @@
-import React,{useState} from 'react';
+import React from 'react';
+import useForm from '../utils/useForm';
+import InputField from '../components/InputField';
+import BookService from '../services/BookService';
+import UserService from '../services/UserService';
 
 const UserRegistrationScreen=({})=>{
     //TODO: Initialize Here
-    const [data,setData]=useState({
-        username:"",
+
+    const [user, updateUser, registerUser] = useForm({
+        name:'',
         email:'',
-        password:"",
-        confirmpassword:''
-    })
-    const {username,email,password,confirmpassword} = data;
-    const changeHandler=e=>{
-        setData({...data,[e.target.name]:[e.target.value]})
-    }
+        password:''
+    }, user=>{
+        console.log('user',user);
+        UserService.userRegistration(user);
+        
+    });
+
+    
+
+
+
     return (
-        <div className='UserRegistrationScreen'>
-           <form>
-                    <label for='text'>Username</label>
-                    <input type='text' name='username' value={username} onChange={changeHandler} /><br/>
-                    <label for='email'>Email</label>
-                    <input type='text' name='username' value={email} onChange={changeHandler}/><br/>
-                    <label for='text'>Password</label>
-                    <input type='password' name='password' value={password} onChange={changeHandler} /><br/>
-                    <label for='text'>Confirm Password</label>
-                    <input type='password' name='password' value={confirmpassword}  onChange={changeHandler}/><br/>
-                    <input type='submit' name="submit"/>
-           </form>
-        </div>
+        <>
+            <h1>UserRegistrationScreen</h1>
+
+            <form onSubmit={registerUser}>
+                <InputField name="name" value={user.name} onChange={updateUser} />
+                <InputField name="email" value={user.name} onChange={updateUser} />
+                <InputField name="password" type="password" value={user.name} onChange={updateUser} />
+                <button type="submit" className="btn btn-primary">Register</button>
+            </form>
+        </>
     );
 }
 

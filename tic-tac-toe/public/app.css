@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.app{
+    background:lightyellow;
+    width: 400px;
+    display:flex;
+    align-items:stretch;
+    flex-direction:column;
+ 
+ }
+
+.header{
+    /* background:rgb(0, 140, 255); */
+    padding:10px;
+    margin-bottom: 10px;
+    
+}
+
+.header h1{
+    font-size:2em;
+    text-shadow: -2px -2px 2px gray;
+}
+
+.reset-button{
+    background:rgb(233, 67, 67);
+    padding:5px;
+    font-weight:bold;
+    width:200px
+
+}
+.start-button{
+    background:rgb(122, 214, 85);
+    padding:5px;
+    font-weight:bold;
+    width:200px
+
+}
+.game{
+    background-color:blanchedalmond;
+    min-height: 300px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-bottom:10px;
+}
+
+.status{
+    font-size: 1em;
+}
+
+.board{
+    width:240px;
+    height:240px;
+    margin:10px;
+    padding:0px;
+    
+}
+.cell{
+    font-family: 'Indie Flower', cursive;
+    font-size:60px;
+    padding:5px;
+    margin:0px;
+    width:80px;
+    border: 1px solid black;
+    height:80px;
+    background-color:blanchedalmond;
+}
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none;
+}
+
+.cell:nth-child(3n+1){
+    border-left: none;
+}
+.cell:nth-child(3n+3){
+    border-right: none;
+}
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7){
+    border-bottom: none;
+}
+
+.clock{
+    align-self: center;
+}
+.scoreboard{
+    align-self: center;
+    
+}
+.scoreboard table{
+    border: 1px solid black;
+}
+.scoreboard th{
+    padding: 10px;
+}
+.scoreboard td{
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+}

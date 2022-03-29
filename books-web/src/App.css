@@ -72,8 +72,32 @@ a.list-item{
     box-shadow: -5px -5px 5px  gray;
     
 }
-.form-control{
-    display: block;
-    width:100%;
+
+.loading-image{
+    height:150px;
+}
+
+.grid-image{
+    height:220px;
+    margin:20px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.book-list-title{
+    font-size:1em;
+    color:gray;
+    Text-align:center;
+}
+
+.book-editor{
+    width:80%;
     
+}
+
+.btn{
+    margin-top:5px;
+}
+
+.book-cover-preview{
+    width:100%;
 }

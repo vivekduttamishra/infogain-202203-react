@@ -1,30 +1,64 @@
 import React from 'react';
 import withTitle from '../utils/withTitle';
+import InputField from '../components/InputField';
+import useForm from '../utils/useForm';
+import bookService from '../services/BookService';
+import {useNavigate} from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const BookAddScreen=({})=>{
     //TODO: Initialize Here
+
+    var [error,setError]=React.useState(null);
+    var [loading,setLoading]=React.useState(false);
+    var navigate =useNavigate();
+
+    var [book,updateBookInfo, addBook]=useForm({
+        isbn:'',
+        title:'',
+        author:'',
+        cover:'',
+        price:0,
+        rating:0,
+        description:''
+    }, async e=>{
+        //console.log('book',book);
+        try{
+            setError(null);
+            setLoading(true);
+            await bookService.addBook(book);
+            return navigate("/book/list"); //go to the book list when successful
+        }catch(error){
+            setError(error.message);
+        }
+        setLoading(false);
+        
+    });
+
     
 
-    return (
-        <div className='BookAddScreen'>
-            
-            <form>
-                <label for='title'>ISBN</label>
-                <input type='text' id='isbn' class='form-control' placeholder='isbn'/>
-                <label for='title'>Title</label>
-                <input type='text' id='title' class='form-control' placeholder='title'/>
-                <label for='title'>Author</label>
-                <input type='text' id='author' class='form-control' placeholder='author'/>
-                <label for='title'>Price</label>
-                <input type='text' id='price' class='form-control' placeholder='price'/>
-                <label for='title'>cover</label>
-                <input type='text' id='cover' class='form-control' placeholder='cover'/>
-                <label for='title'>Description</label>
-                <input type='text' id='description' class='form-control' placeholder='description'/>
 
+  
+  
+    return (
+        <div className='row'>
+           <div className='col-8'>
+            <form onSubmit={addBook}>
+               <InputField name="isbn" value={book.isbn} onChange={updateBookInfo}/>
+               <InputField name="title" value={book.title} onChange={updateBookInfo} />
+               <InputField name="author" value={book.author} onChange={updateBookInfo} />
+               <InputField name="cover" value={book.cover} onChange={updateBookInfo} />
+               <InputField name="price" value={book.price} onChange={updateBookInfo} />
+               <InputField name="rating" value={book.rating} onChange={updateBookInfo} />
+               <InputField name="description" value={book.description} onChange={updateBookInfo} />
+               <button className="btn btn-primary" type="submit">Add Book</button>
+               <Loader size={40} condition={loading} />
+               <span className='text text-danger'> {error}</span>
             </form>
-            <button type='submit' class="btn btn-primary">Save</button>
-            
+            </div> 
+            <div className='col-4'>
+                <img alt='cover preview' src={book.cover} title={book.title} className='book-cover-preview' />
+            </div>
         </div>
     );
 }

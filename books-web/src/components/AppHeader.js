@@ -1,9 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import BookService from '../services/BookService'
+import UserService from '../services/UserService';
 
 const AppHeader=({title})=>{
     //TODO: Initialize Here
     
+    let logedinuser = JSON.parse(localStorage.getItem('logedinuser'))
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,13 +36,15 @@ const AppHeader=({title})=>{
                 <ul className="navbar-nav">
                 <li className="nav-item dropdown">
                         <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Members
+                            {logedinuser ? logedinuser.email:'Members'}
                         </Link>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <Link className="dropdown-item" to="/user/login">Login</Link>
-                            <Link className="dropdown-item" to="/user/register">Register</Link>
+                            {!logedinuser && <><Link className="dropdown-item" to="/user/login">Login</Link>
+                            <Link className="dropdown-item" to="/user/register">Register</Link></>}
                             <div className="dropdown-divider"></div>
-                            <Link className="dropdown-item" to="#">Logout</Link>
+                            {logedinuser && <><Link className='dropdown-item' to="#">Profile</Link>
+                            <Link className='dropdown-item' to="#">Favourites</Link>
+                            <Link className="dropdown-item" to="#" onClick={UserService.userLogout}>Logout</Link></>}
                         </div>
                     </li>
                 </ul>

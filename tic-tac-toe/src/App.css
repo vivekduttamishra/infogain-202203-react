@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Rubik+Beastly&display=swap');
+
+body{
+    padding:0;
+    margin:0;
+}
+
+.header{
+    background:rgb(0, 140, 255);
+    padding:10px;
+    margin-bottom: 10px;
+    
+}
+
+.header h1{
+    font-size:2em;
+    text-shadow: -2px -2px 2px gray;
+}
+
+.app{
+    display:flex;
+    flex-direction:column;
+}
+
+.game{
+    border:2px solid gray;
+    padding:10px;
+    margin-top:30px;
+    width:350px;
+    height:350px;
+    align-self:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+.board{  
+    padding:10px;
+    height:200px;
+    display:flex;
+    
+}
+
+.column-layout{
+    display:flex;
+    width:100%;
+    justify-content:space-around;
+}
+
+.cells{
+    width:180px;
+        
+}
+.cell{
+    
+    width:60px;
+    height:60px;   
+    background-color:blanchedalmond;
+    cursor: pointer;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;    
+    font-size:30px;
+    border:0px;
+    
+}
+
+.status{
+    font-size:1.5em;
+    font-weight: bold;
+}
+.filler{
+    flex:1;
+}
+.start-button{
+    align-self: center;
+    width:200px;
+    background-color:green;
+    color:white;
+    padding:5px;
+    height:50px;
+}
+
+.score-board{
+    align-self:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    color: black;
+    border-radius:5px;
+    margin:5px;
+}
+
+.score-board h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.5em; 
+    color:black
+}
+.score-board table{
+    border:1px solid black;
+   
+}
+
+.score-board th{
+    background-color:black;
+    color: white;
+    padding:5px;
+}
+
+.score-board td{
+    border:1px solid black;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.clock{
+    align-self:center;
+}
+
+.stop-watch{
+    font-size:20px;
+    color:black;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    min-width: 100px;
+    align-items: center;
+    line-height: 1px;
+    padding:5px;
+    justify-content:flex-start;
+}
