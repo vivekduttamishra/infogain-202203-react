@@ -1,6 +1,6 @@
 import React from 'react';
-import {useForm, InputField,AsyncForm} from '../components/Input';
-import userService from '../services/UserService';
+import useForm from '../utils/useForm';
+import InputField from '../components/InputField';
 
 const UserLoginScreen=({})=>{
     //TODO: Initialize Here
@@ -10,10 +10,9 @@ const UserLoginScreen=({})=>{
         password:''
     });
 
-    const loginUser= async ()=>{
-
-        await userService.login(user.email, user.password);
-
+    const handleLogin=(e)=>{
+        e.preventDefault();
+        console.log('user',user);        
     }
 
 
@@ -26,10 +25,11 @@ const UserLoginScreen=({})=>{
 
                 </div>
                 <div className='col-6'>
-                    <AsyncForm action={loginUser} actionName="Sign In" successRedirectUrl='/user/profile'>
+                    <form onSubmit={handleLogin}>
                         <InputField name="email" value={user.email} onChange={updateUser} />
-                        <InputField name="password" value={user.password} type="password" onChange={updateUser}/>                        
-                    </AsyncForm>
+                        <InputField name="password" value={user.password} type="password" onChange={updateUser}/>
+                        <button type="submit" className='btn btn-primary'>Login</button>
+                    </form>
                 </div>
             </div>
 
