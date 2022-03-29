@@ -73,7 +73,7 @@ class Game extends React.Component {
                 
                 <Status move={this.state.move} winner={this.state.winner} movesLeft={this.state.movesLeft} />
                
-                <Board cells={this.state.cells} onCellClick={this.handleCellClick} move={this.state.move} winner={this.state.winner}/>
+                <Board cells={this.state.cells} onCellClick={this.handleCellClick} move={this.state.move} winningCombo={this.state.winningCombo}/>
                
                 { this.state.move===null
                  ?  <button 
