@@ -85,8 +85,7 @@ class UserService{
     }
 
     async getLoggedInUser(){
-        let str= localStorage.getItem(UserService.currentUser);
-        let user = str?JSON.parse(str):null;
+        let user= JSON.parse(UserService.currentUser);
         return user;
     }
 }
