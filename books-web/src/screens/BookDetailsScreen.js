@@ -30,7 +30,7 @@ const BookDetailsScreen=(props)=>{
 
     return (
 
-        <AsyncContainer loadingCondition={!book}  >
+        <AsyncContainer model={book}  >
             <BookDetails book={book} />
         </AsyncContainer>
 

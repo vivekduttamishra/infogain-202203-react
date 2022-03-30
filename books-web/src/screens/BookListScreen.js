@@ -24,7 +24,7 @@ const BookListScreen=({onBookSelect,now})=>{
     
 
     return (
-        <AsyncContainer >
+        <AsyncContainer model={books.length} >
            
             <div className='row'>
                 {books.map(book=><BookListItem onBookSelect={onBookSelect} key={book.isbn} book={book}/>)}

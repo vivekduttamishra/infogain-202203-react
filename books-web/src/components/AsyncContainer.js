@@ -3,12 +3,14 @@ import {useSelector} from 'react-redux';
 import {Status} from '../store/Constants';
 import {useNavigate} from 'react-router-dom'
 
-const AsyncContainer=({loadingText,size, image='/images/loading.gif', loadingCondition, redirectUrl,errorRenderer,condition=true, children})=>{
+const AsyncContainer=({loadingText,size, image='/images/loading.gif', model, redirectUrl,errorRenderer,condition=true, children})=>{
     //TODO: Initialize Here
 
     const status= useSelector(s=>s.status);
     const navigate=useNavigate();
 
+    console.log('status',status);
+    
 
     let style={};
     if(size){
@@ -18,13 +20,10 @@ const AsyncContainer=({loadingText,size, image='/images/loading.gif', loadingCon
         }
     };
 
-    
-
-    if(loadingCondition || status.status===Status.STATUS_WAITING  || status.status===Status.STATUS_IDLE)
-            return <img style={style} src={image} title={loadingText} alt={loadingText} className='loading-image' />
-
     if(status.status===Status.STATUS_ERROR)
     {
+
+        console.log('error block',status.error);
         if(errorRenderer)
             return errorRenderer(status.error);
         else if(redirectUrl)
@@ -34,7 +33,12 @@ const AsyncContainer=({loadingText,size, image='/images/loading.gif', loadingCon
 
 
     }
-    else if(children)
+
+    if(!model ||  status.status===Status.STATUS_WAITING  || status.status===Status.STATUS_IDLE)
+            return <img style={style} src={image} title={loadingText} alt={loadingText} className='loading-image' />
+
+    
+    if(children)
         return children;
     else
         return null;

@@ -14,6 +14,8 @@ export const statusReducer = (status={status:Status.STATUS_IDLE}, action )=>{
     switch(action.type){
 
         case StatusActions.STATUS_SET:
+            console.log('Setting status to ',action.payload );
+            
             return action.payload;
 
         default:

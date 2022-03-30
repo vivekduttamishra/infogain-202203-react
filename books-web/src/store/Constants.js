@@ -38,7 +38,7 @@ export const Status={
 }
 
 
-export const SUCCESS =  {type:StatusActions.STATUS_SET, payload:{status:Status.STATUS_DONE}};
+export const SUCCESS =  {type:StatusActions.STATUS_SET, payload:{status:Status.STATUS_SUCCESS}};
 export const WAITING =  {type:StatusActions.STATUS_SET, payload:{status:Status.STATUS_WAITING}};
 export const IDLE =  {type:StatusActions.STATUS_SET, payload:{status:Status.STATUS_IDLE}};
 
