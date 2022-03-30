@@ -1,50 +1,50 @@
 import React from 'react';
 import withTitle from '../utils/withTitle';
+// import InputField from '../components/Input';
+// import useForm from '../utils/useForm';
 
-const BookAddScreen = ({ }) => {
-    //TODO: Initialize Here
+import {useForm, InputField,AsyncForm} from '../components/Input';
+
+import bookService from '../services/BookService';
 
 
+const BookAddScreen=({})=>{
+   
+    var [book,updateBookInfo]=useForm({
+        isbn:'',
+        title:'',
+        author:'',
+        cover:'',
+        price:0,
+        rating:0,
+        description:''
+    });
+
+    const save= async e=> {       
+        await bookService.addBook(book);
+    }
+
+    
     return (
-        <div className='BookAddScreen'>
-            <section id="contact-form" className="py-3">
-                <div className="container">
-                    <h3 className="l-heading">Add New Book</h3>
-                    <form>
-                        <div className="form-group">
-                            <label htmlFor="title">TITLE</label>
-                            <input type="text" className="form-control" name="title" id="title" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="author">AUTHOR</label>
-                            <input type="text" className="form-control" name="author" id="author" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="price">PRICE</label>
-                            <input type="text" className="form-control" name="price" id="price" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="rating">RATING</label>
-                            <input type="text" className="form-control" name="rating" id="rating" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="isbn">ISBN</label>
-                            <input type="text" className="form-control" name="isbn" id="isbn" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="coverphoto">Cover Photo</label>
-                            <input type="file" className="form-control" name="coverphoto" id="coverphoto" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="message">DESCRIPTION</label>
-                            <textarea name="description" className="form-control" id="description" defaultValue={""} />
-                        </div>
-                        <button type="submit" id="btnsubmit" className="btnsub btn-primary">Save</button>
-                    </form>
-                </div>
-            </section>
+        <div className='row'>
+           <div className='col-8'>
+            <AsyncForm actionName="Add New Book" action={save}>
+               
+               <InputField name="isbn" value={book.isbn} onChange={updateBookInfo}/>
+               <InputField name="title" value={book.title} onChange={updateBookInfo} />
+               <InputField name="author" value={book.author} onChange={updateBookInfo} />
+               <InputField name="cover" value={book.cover} onChange={updateBookInfo} />
+               <InputField name="price" value={book.price} onChange={updateBookInfo} />
+               <InputField name="rating" value={book.rating} onChange={updateBookInfo} />
+               <InputField name="description" value={book.description} onChange={updateBookInfo} />
+               
+            </AsyncForm>
+            </div> 
+            <div className='col-4'>
+                <img alt='cover preview' src={book.cover} title={book.title} className='book-cover-preview' />
+            </div>
         </div>
     );
 }
 
-export default BookAddScreen;
+export default withTitle( BookAddScreen, "Add New Book");

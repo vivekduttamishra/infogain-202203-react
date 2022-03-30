@@ -1,51 +1,46 @@
 import React from 'react';
+// import useForm from '../utils/useForm';
+// import InputField from '../components/Input';
 
-const UserRegistrationScreen = ({ }) => {
+import {useForm, InputField,AsyncForm} from '../components/Input';
+
+import userService from '../services/UserService';
+
+
+const UserRegistrationScreen=({})=>{
     //TODO: Initialize Here
+
+  
+
+    const [user, updateUser] = useForm({
+        name:'',
+        email:'',
+        password:''
+    });
+
+    const registerUser =async ()=>{
+        try{
+        await userService.register(user);
+        }catch(e){
+            console.log(e);
+            throw e;
+        }
+    }
+
+    
+
 
 
     return (
-        <div className='UserRegistrationScreen'>
+        <>
+            <h1>UserRegistrationScreen</h1>
 
-            <div className='UserLoginScreen'>
-                <h1 className='login-header'>User Registration </h1>
-                <div className='login-img'>
-                    <img src="https://ca-booksapi.herokuapp.com/images/coverpage02.jpg" alt="login-image" className='login-round' />
-                </div>
-                <div className="regisration-form">
-                    <form className="form-signup">
-                        <div class="form-group row">
-                        <div className="col-sm-10">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
-                                    <input type="text" className="form-control" placeholder="Name" />
-                                </div>
-                                </div>
-                            <div className="col-sm-10">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
-                                    <input type="email" className="form-control" placeholder="Email" />
-                                </div>
-                            </div>
-                            <div className="col-sm-10">
-                                <div class="input-group-prepend">
-                                    <div className="input-group-text">🔑</div>
-                                    <input type="password" className="form-control" placeholder="Password" />
-                                </div>
-                            </div>
-
-                            <div className="col-sm-10">
-                                <div className="input-group-prepend">
-                                    <div className="input-group-text">🔑</div>
-                                    <input type="password" className="form-control" placeholder="confirm password" />
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" className="btn btn-reg-primary">👨‍🏫Register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+            <AsyncForm action={registerUser}>
+                <InputField name="name" value={user.name} onChange={updateUser} />
+                <InputField name="email" value={user.email} onChange={updateUser} />
+                <InputField name="password" type="password" value={user.password} onChange={updateUser} />
+            </AsyncForm>
+        </>
     );
 }
 

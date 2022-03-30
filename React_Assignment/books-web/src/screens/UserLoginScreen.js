@@ -1,38 +1,39 @@
 import React from 'react';
+import {useForm, InputField,AsyncForm} from '../components/Input';
+import userService from '../services/UserService';
 
-const UserLoginScreen = ({ }) => {
+const UserLoginScreen=({})=>{
     //TODO: Initialize Here
+    
+    const [user, updateUser] = useForm({
+        email:'',
+        password:''
+    });
+
+    const loginUser= async ()=>{
+
+        await userService.login(user.email, user.password);
+
+    }
 
 
     return (
-        <div className='UserRegistrationScreen'>
-            <div className='UserLoginScreen'>
-                <h1 className='login-header'>User Login </h1>
-                <div className='login-img'>
-                    <img src="https://ca-booksapi.herokuapp.com/images/coverpage02.jpg" alt="login-image" className='login-round' />
+        <>
+            <h1 className='screen-title'>User Login Screen</h1>
+
+            <div className='row'>
+                <div className='col-6'>
+
                 </div>
-                <div className="login-form">
-                    <form className="form-signin">
-                        <div class="form-group row">
-                            <div className="col-sm-10">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
-                                    <input type="email" className="form-control" placeholder="Email" />
-                                </div>
-                            </div>
-                            <div className="col-sm-10">
-                                <div class="input-group-prepend">
-                                    <div className="input-group-text">🔑</div>
-                                    <input type="password" className="form-control" placeholder="Password" />
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" className="btn btn-login-primary">➡Login</button>
-                    </form>
+                <div className='col-6'>
+                    <AsyncForm action={loginUser} actionName="Sign In" successRedirectUrl='/user/profile'>
+                        <InputField name="email" value={user.email} onChange={updateUser} />
+                        <InputField name="password" value={user.password} type="password" onChange={updateUser}/>                        
+                    </AsyncForm>
                 </div>
             </div>
-        </div>
 
+        </>
     );
 }
 
