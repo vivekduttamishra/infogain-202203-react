@@ -1,8 +1,7 @@
 import React from 'react';
 import {useForm, InputField,AsyncForm} from '../components/Input';
 //import userService from '../services/UserService';
-import {login} from '../store/UserActions';
-import { useDispatch} from 'react-redux';
+import {useUserContext} from '../store/UserStore';
 
 const UserLoginScreen=({})=>{
     //TODO: Initialize Here
@@ -12,10 +11,10 @@ const UserLoginScreen=({})=>{
         password:'p@ss#1'
     });
 
-    const dispatch=useDispatch();
+    const {login} = useUserContext();
 
     const loginUser= async ()=>{
-       await login(dispatch)(user.email,user.password);
+       await login(user.email,user.password);
     }
 
 

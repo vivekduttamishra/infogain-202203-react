@@ -1,19 +1,13 @@
 import React,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
 //import userService from '../services/UserService';
-import {logout,checkLogin} from '../store/UserActions';
-
-import {useSelector,useDispatch} from 'react-redux';
-
+import {UserActions,useUserContext} from '../store/UserStore';
 
 const LoggedInUserMenu = ({user}) => {
 
-    
-    const dispatch=useDispatch();
+    const {logout} =useUserContext();
 
-    const handleLogout=()=>{
-        logout(dispatch)();
-    }
+
     
 
     return (<>
@@ -24,7 +18,7 @@ const LoggedInUserMenu = ({user}) => {
             <Link data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="/user/Profile">Profile</Link>
             <Link data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="/user/favorites">Favorites</Link>
             <div className="dropdown-divider"></div>
-            <button onClick={handleLogout} data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="#">Logout</button>
+            <button onClick={logout} data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="#">Logout</button>
         </div>
 
     </>);
@@ -48,16 +42,11 @@ const GuestMenu = () => {
 const Membership = ({ }) => {
     //TODO: Initialize Here
    
-  
-
-   const user = useSelector(s=>s.user);
-   
-
-   const dispatch=useDispatch();
+    const {user,checkLogin} = useUserContext();  //we will re-render whenever user object changes
 
     useEffect(()=>{
 
-       checkLogin(dispatch)();
+       checkLogin();
 
 
     },[]);

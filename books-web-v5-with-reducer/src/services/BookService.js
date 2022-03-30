@@ -36,9 +36,7 @@ class BookService{
 
     async getBookByIsbn(isbn){
         await delay(2000);
-        const book =this.books.find(b=>b.isbn === isbn);
-        if(book===undefined)
-            throw new Error("No Book Found with isbn "+isbn);
+        return this.books.find(b=>b.isbn === isbn);
     }
 
     async addBook(book){

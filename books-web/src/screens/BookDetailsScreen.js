@@ -3,38 +3,38 @@ import BookDetails from '../components/BookDetails'
 import withDate from '../utils/withDate';
 import {useParams, Navigate } from 'react-router-dom';
 import Loader from '../components/Loader';
+import {useSelector, useDispatch} from 'react-redux';
+import {getBookByIsbn} from '../store/BookActions';
+import AsyncContainer from '../components/AsyncContainer';
 
-import bookService from '../services/BookService';
+
 
 
 const BookDetailsScreen=(props)=>{
 
-    const [book,setBook] = useState(null);
+    const book= useSelector(s=>s.selectedBook);
     
-    const params = useParams()
+    const params = useParams();
+
+    const dispatch = useDispatch();
     
 
     useEffect(()=>{
 
-        const loadBook=async()=>{
-            let b = await bookService.getBookByIsbn(params.isbn);
-
-            setBook(b);
-        }
-
-        loadBook();
-    },[])
+        getBookByIsbn(dispatch)(params.isbn);
+       
+    },[params.isbn])
 
   
-    if(book===null) //show loading
-        return <Loader loadingText={`searching for isbn ${params.isbn}`} />
-    
-    if(book===undefined){
-        return <Navigate to={`/notfound/Invalid or Missing Isbn/${params.isbn}`} />
-    }
-    
+  
 
-    return <BookDetails book={book} />         
+    return (
+
+        <AsyncContainer loadingCondition={!book}  >
+            <BookDetails book={book} />
+        </AsyncContainer>
+
+    )   
        
     
 }

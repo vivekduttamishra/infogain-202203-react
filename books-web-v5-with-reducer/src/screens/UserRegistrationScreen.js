@@ -3,17 +3,15 @@ import React from 'react';
 // import InputField from '../components/Input';
 
 import {useForm, InputField,AsyncForm} from '../components/Input';
-import {register} from '../store/UserActions';
-import {useDispatch} from 'react-redux';
 
 
-
+import {useUserContext} from '../store/UserStore';
 
 
 const UserRegistrationScreen=({})=>{
     //TODO: Initialize Here
 
-   
+    const {register} =useUserContext();
 
     const [user, updateUser] = useForm({
         name:'',
@@ -21,9 +19,8 @@ const UserRegistrationScreen=({})=>{
         password:''
     });
 
-    const dispatch=useDispatch();
     const registerUser =async ()=>{
-        await register(dispatch)(user);
+        await register(user);
     }
 
     

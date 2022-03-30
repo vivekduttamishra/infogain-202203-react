@@ -1,10 +1,11 @@
 import React from 'react';
-
+import { useUserContext } from '../store/UserStore';
 import {Navigate} from 'react-router-dom';
-import {connect} from 'react-redux';
 
-const UserProfileScreen=({user})=>{
+const UserProfileScreen=({})=>{
+    //TODO: Initialize Here
     
+    const {user} = useUserContext();
     if(!user) 
         return <Navigate to="/user/login" />
 
@@ -17,13 +18,4 @@ const UserProfileScreen=({user})=>{
     );
 }
 
-const mapReduxStateToProps= reduxStore=>{
-
-    return {
-        user:reduxStore.user
-    };
-}
-
-
-
-export default connect(mapReduxStateToProps)(UserProfileScreen);
+export default UserProfileScreen;

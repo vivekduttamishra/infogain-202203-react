@@ -7,18 +7,15 @@ import 'jquery/dist/jquery.min';
 import 'popper.js/dist/popper.min';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
-
-import store from './store/Store';  //this is my redux store
-
-import { Provider } from 'react-redux'; //acts like Context.Provider
+import {UserContextProvider} from './store/UserStore';
 
 
 
 ReactDOM.render(
     <React.StrictMode>
-            <Provider store={store}>
-                <App />
-            </Provider>
+        <UserContextProvider>
+            <App />
+        </UserContextProvider>
     </React.StrictMode>,
     document.querySelector("#root"));
 

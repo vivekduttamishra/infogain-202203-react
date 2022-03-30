@@ -1,23 +1,26 @@
-/*
-const register = dispatch => async(user)=>{
+import {UserActions} from './Constants';
+import service from '../services/UserService';
+
+export const register = dispatch => async(user)=>{
 
     await service.register(user);
-    dispatch({type:UserActions.LOGIN, user})
+    dispatch({type:UserActions.LOGIN, payload:user})
 }
 
-const login= dispatch => async (email,password) =>{
+export const login= dispatch => async (email,password) =>{
 
     var user = await service.login(email,password);
-    dispatch({type:UserActions.LOGIN, user});
+    dispatch({type:UserActions.LOGIN, payload:user});
 }
 
-const logout= dispatch => async()=>{
+export const logout= dispatch => async()=>{
     await service.logout();
     dispatch({type:UserActions.LOGOUT});
 }
 
-const checkLogin = dispatch =>async()=>{
-    let user =service.checkLogin();
-    dispatch({type:UserActions.LOGIN, user}) ;
+export const checkLogin = dispatch =>async()=>{
+    let user =await service.getLoggedInUser();
+    //console.log('checkLogin',user);
+    
+    dispatch({type:UserActions.LOGIN, payload:user}) ;
 }
-*/
