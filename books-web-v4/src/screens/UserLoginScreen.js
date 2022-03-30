@@ -1,7 +1,7 @@
 import React from 'react';
 import {useForm, InputField,AsyncForm} from '../components/Input';
-//import userService from '../services/UserService';
-import {useUserContext} from '../store/UserStore';
+import userService from '../services/UserService';
+import {UserActions, useUserContext} from '../store/UserStore';
 
 const UserLoginScreen=({})=>{
     //TODO: Initialize Here
@@ -11,10 +11,14 @@ const UserLoginScreen=({})=>{
         password:'p@ss#1'
     });
 
-    const {login} = useUserContext();
+    const {dispatch} = useUserContext();
 
     const loginUser= async ()=>{
-       await login(user.email,user.password);
+
+        var u = await userService.login(user.email, user.password);
+        //now update the state using dispatch
+        
+        dispatch({type:UserActions.LOGIN, user:u});
     }
 
 

@@ -4,14 +4,14 @@ import React from 'react';
 
 import {useForm, InputField,AsyncForm} from '../components/Input';
 
-
-import {useUserContext} from '../store/UserStore';
+import userService from '../services/UserService';
+import {useUserContext,UserActions} from '../store/UserStore';
 
 
 const UserRegistrationScreen=({})=>{
     //TODO: Initialize Here
 
-    const {register} =useUserContext();
+    const {dispatch} =useUserContext();
 
     const [user, updateUser] = useForm({
         name:'',
@@ -20,7 +20,13 @@ const UserRegistrationScreen=({})=>{
     });
 
     const registerUser =async ()=>{
-        await register(user);
+        try{
+        await userService.register(user);
+        dispatch({type:UserActions.LOGIN, user});
+        }catch(e){
+            console.log(e);
+            throw e;
+        }
     }
 
     

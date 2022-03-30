@@ -1,14 +1,17 @@
 import React,{useEffect} from 'react';
 import { Link } from 'react-router-dom';
-//import userService from '../services/UserService';
+import userService from '../services/UserService';
 import {UserActions,useUserContext} from '../store/UserStore';
 
 const LoggedInUserMenu = ({user}) => {
 
-    const {logout} =useUserContext();
+    const {dispatch} =useUserContext();
 
 
-    
+    const handleLogout=async()=>{
+        await userService.logout();
+        dispatch({type:UserActions.LOGOUT});
+    }
 
     return (<>
         <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -18,7 +21,7 @@ const LoggedInUserMenu = ({user}) => {
             <Link data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="/user/Profile">Profile</Link>
             <Link data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="/user/favorites">Favorites</Link>
             <div className="dropdown-divider"></div>
-            <button onClick={logout} data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="#">Logout</button>
+            <button onClick={handleLogout} data-toggle="collapse" data-target="#navbarSupportedContent" className="dropdown-item" to="#">Logout</button>
         </div>
 
     </>);
@@ -42,11 +45,17 @@ const GuestMenu = () => {
 const Membership = ({ }) => {
     //TODO: Initialize Here
    
-    const {user,checkLogin} = useUserContext();  //we will re-render whenever user object changes
+    const {user,dispatch} = useUserContext();  //we will re-render whenever user object changes
 
     useEffect(()=>{
 
-       checkLogin();
+        const checkLogin=async()=>{
+            const user = await userService.getLoggedInUser();
+            console.log('checked for the login',user);
+            dispatch({type:UserActions.LOGIN, user});
+        }
+
+        checkLogin();
 
 
     },[]);
