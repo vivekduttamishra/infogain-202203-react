@@ -18,7 +18,7 @@ const BookListScreen=({onBookSelect,now})=>{
 
    useEffect(()=>{
 
-        getAllBooks(dispatch)();
+        getAllBooks()(dispatch);
    
    },[dispatch]);
     

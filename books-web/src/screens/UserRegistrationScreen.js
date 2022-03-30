@@ -23,7 +23,7 @@ const UserRegistrationScreen=({})=>{
 
     const dispatch=useDispatch();
     const registerUser =async ()=>{
-        await register(dispatch)(user);
+        await register(user)(dispatch);
     }
 
     

@@ -21,7 +21,7 @@ const BookDetailsScreen=(props)=>{
 
     useEffect(()=>{
 
-        getBookByIsbn(dispatch)(params.isbn);
+        getBookByIsbn(params.isbn)(dispatch);
        
     },[params.isbn])
 

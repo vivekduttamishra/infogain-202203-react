@@ -15,7 +15,7 @@ const UserLoginScreen=({})=>{
     const dispatch=useDispatch();
 
     const loginUser= async ()=>{
-       await login(dispatch)(user.email,user.password);
+       await login(user.email,user.password)(dispatch);
     }
 
 

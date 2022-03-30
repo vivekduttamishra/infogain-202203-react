@@ -12,7 +12,7 @@ const LoggedInUserMenu = ({user}) => {
     const dispatch=useDispatch();
 
     const handleLogout=()=>{
-        logout(dispatch)();
+        logout()(dispatch);
     }
     
 
@@ -57,7 +57,7 @@ const Membership = ({ }) => {
 
     useEffect(()=>{
 
-       checkLogin(dispatch)();
+       checkLogin()(dispatch);
 
 
     },[]);

@@ -5,7 +5,9 @@ import withTitle from '../utils/withTitle';
 
 import {useForm, InputField,AsyncForm} from '../components/Input';
 
-import bookService from '../services/BookService';
+//import bookService from '../services/BookService';
+import {useDispatch} from 'react-redux';
+import {addBook} from '../store/BookActions';
 
 
 const BookAddScreen=({})=>{
@@ -20,8 +22,10 @@ const BookAddScreen=({})=>{
         description:''
     });
 
+    const dispatch=useDispatch();
+
     const save= async e=> {       
-        await bookService.addBook(book);
+        await addBook(book)(dispatch);
     }
 
     

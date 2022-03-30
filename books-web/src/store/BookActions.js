@@ -4,7 +4,7 @@ import {BookActions,SUCCESS,WAITING, errorStatus} from './Constants';
 import bookService from '../services/BookService';
 
 
-export const  getAllBooks= dispatch => async ()=>{
+export const  getAllBooks= () => async (dispatch)=>{
 
     try{
         dispatch(WAITING);
@@ -17,7 +17,7 @@ export const  getAllBooks= dispatch => async ()=>{
     }
 }
 
-export const getBookByIsbn= dispatch => async (isbn)=>{
+export const getBookByIsbn= (isbn) => async (dispatch)=>{
     try{
         dispatch(WAITING);
         const payload= await bookService.getBookByIsbn(isbn);
@@ -28,4 +28,17 @@ export const getBookByIsbn= dispatch => async (isbn)=>{
     }catch(error){
         dispatch(errorStatus(error));
     }
+}
+
+export const addBook= book => async dispatch =>{
+ 
+        try{
+            dispatch(WAITING);
+            const payload = await bookService.addBook(book);
+            dispatch(SUCCESS);
+            dispatch({type:BookActions.BOOK_ADD,payload});
+        }catch(error){
+            dispatch(errorStatus(error));
+        }   
+
 }
