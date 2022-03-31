@@ -3,6 +3,8 @@ import delay from '../utils/delay';
 
 class UserRegisterService {
 
+    static loggedInUserKey="currentUser";
+
     constructor() {
         this.users = [];
     }
@@ -28,10 +30,8 @@ class UserRegisterService {
         if (localStorage.getItem('users')) {
             const allStoredUser = JSON.parse(localStorage.getItem('users'));
 
-            console.log("allStoredUser", allStoredUser.email)
-            console.log("allStoredUser", allStoredUser.password)
-
-            if (user.email === allStoredUser.email && user.password === allStoredUser.password) {
+            const u = allStoredUser.find(x => x.email == user.email && x.password == user.password);
+            if (u) {
                 console.log("Login successful");
             } else {
                 throw new Error("Wong credentials");
@@ -39,20 +39,6 @@ class UserRegisterService {
         } else {
             throw new Error("Wong credentials");
         }
-
-        // if (localStorage.getItem('users')) {
-        //     const allStoredUser = JSON.parse(localStorage.getItem('users'));
-        //     const matchUser = allStoredUser.filter(storeUser => {
-        //         return user.email === storeUser.email && user.password === storeUser.password;
-        //     })
-        //     if (matchUser.lenght) {
-        //         console.log("Login successful");
-        //     } else {
-        //         throw new Error("Wong credentials");
-        //     }
-        // } else {
-        //     throw new Error("Wong credentials");
-        // }
     }
 
     async addUser(user) {
@@ -66,8 +52,16 @@ class UserRegisterService {
 
         this.users.push(user);
         this._saveUsers();
+    }
 
+    async logout(){
+        await delay(1000);
+        localStorage.removeItem(UserRegisterService.currentUser);
+    }
 
+    async getLoggedInUser(){
+        let user= JSON.parse(UserRegisterService.currentUser);
+        return user;
     }
 }
 
