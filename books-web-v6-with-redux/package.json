@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.26.1",
     "bootstrap": "^4.6.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
@@ -23,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "api": "json-server data/db.json --port 4000"
+    "api":"json-server data/db.json --port 4000"
   },
   "eslintConfig": {
     "extends": [
