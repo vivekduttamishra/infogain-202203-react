@@ -4,30 +4,13 @@ import {BookActions,SUCCESS,WAITING, errorStatus} from './Constants';
 import bookService from '../services/BookService';
 
 
-export const  getAllBooks= () => async (dispatch)=>{
-
-    try{
-        dispatch(WAITING);
-        const payload=await bookService.getAllBooks();
-        dispatch(SUCCESS);
-        dispatch({type:BookActions.BOOKS_SELECT,payload});
-
-    }catch(error){
-        dispatch(errorStatus(error));
-    }
+export const getAllBooks = ()=>{
+    return {type:BookActions.BOOKS_SELECT, payload:bookService.getAllBooks()};
 }
 
-export const getBookByIsbn= (isbn) => async (dispatch)=>{
-    try{
-        dispatch(WAITING);
-        const payload= await bookService.getBookByIsbn(isbn);
-        console.log('payload in BOOK_SELECT',payload);
-        
-        dispatch(SUCCESS);
-        dispatch({type:BookActions.BOOK_SELECT, payload});
-    }catch(error){
-        dispatch(errorStatus(error));
-    }
+
+export const getBookByIsbn= (isbn) => {
+    return {type:BookActions.BOOK_SELECT, payload:bookService.getBookByIsbn(isbn)}    
 }
 
 export const addBook= book => async dispatch =>{
@@ -40,5 +23,19 @@ export const addBook= book => async dispatch =>{
         }catch(error){
             dispatch(errorStatus(error));
         }   
+}
 
+export const removeBook = isbn => async dispatch =>{
+
+    try{
+        
+        dispatch(WAITING);
+        await bookService.removeBook(isbn);
+        
+        dispatch(SUCCESS);
+        dispatch({type:BookActions.BOOK_REMOVE,payload:isbn});
+    }catch(error){
+        
+        dispatch(errorStatus(error));
+    }
 }
